@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Inox Absolu — CALLI & SOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --ocre-deep: #B8780A;
+  --terra: #C0583A;
+  --sage: #8BBFB5;
+  --turquoise-pastel: #DDF3F1;
+  --dark: #1A1410;
+  --mid: #4A3828;
+  --grey: #9A8A80;
+  --light: #F8F4EE;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Jost', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:20px; line-height:1.8; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:#fff;
+  border-bottom:1px solid #E8E2DC;
+  display:flex; align-items:center;
+  padding:0 48px;
+  height:40px;
+  gap:0;
+}
+.nav-logo {
+  font-family:var(--sans); font-weight:700;
+  font-size:12px; letter-spacing:0.18em;
+  color:var(--ocre); text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  margin-right:32px;
+}
+.nav-links {
+  display:flex; align-items:stretch; flex:1; overflow-x:auto;
+}
+.nav-links a {
+  display:flex; align-items:center;
+  padding:0 12px; height:40px;
+  font-size:12px; font-weight:300; letter-spacing:0.08em;
+  text-transform:uppercase; text-decoration:none;
+  color:var(--dark); white-space:nowrap;
+  border-bottom:1px solid transparent;
+  transition:border-color 0.2s;
+}
+.nav-links a:hover { border-bottom-color:var(--ocre); }
+.nav-links a.active { border-bottom-color:var(--ocre); color:var(--ocre); }
+.nav-lang {
+  margin-left:auto;
+  display:flex; gap:0; font-size:10px; font-weight:600;
+  letter-spacing:0.08em;
+}
+.nav-lang button {
+  border:none; background:none; cursor:pointer;
+  padding:0 10px; color:var(--grey); font-family:var(--sans);
+  font-size:10px; font-weight:600; letter-spacing:0.08em;
+}
+.nav-lang button.active { color:var(--dark); }
+
+/* ── EN-TÊTE ARTICLE ── */
+.article-header {
+  background:var(--light);
+  padding:80px 5% 60px;
+  border-bottom:1px solid #E8E2DC;
+}
+.article-breadcrumb {
+  font-size:11px; font-weight:500; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--grey);
+  margin-bottom:28px;
+  display:flex; align-items:center; gap:10px;
+}
+.article-breadcrumb a { color:var(--grey); text-decoration:none; }
+.article-breadcrumb a:hover { color:var(--ocre); }
+.article-breadcrumb span { color:var(--ocre); }
+.article-cat {
+  font-size:11px; font-weight:500; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--ocre);
+  margin-bottom:20px; display:inline-block;
+}
+.article-title {
+  font-family:var(--serif); font-size:64px; font-weight:400;
+  color:var(--dark); line-height:1.1; margin-bottom:28px;
+  max-width:780px;
+}
+.article-title em { font-style:italic; color:var(--ocre); }
+.article-intro {
+  font-family:var(--serif); font-style:italic;
+  font-size:22px; color:var(--mid); line-height:1.7;
+  max-width:680px; margin-bottom:40px;
+}
+.article-meta {
+  display:flex; align-items:center; gap:24px;
+  font-size:12px; color:var(--grey); letter-spacing:0.08em;
+  border-top:1px solid #E8E2DC; padding-top:24px;
+}
+.article-meta-author { color:var(--dark); font-weight:500; }
+.article-meta-dot { color:#E8E2DC; }
+.article-tags { display:flex; gap:8px; margin-left:auto; }
+.article-tag {
+  font-size:10px; font-weight:500; letter-spacing:0.14em;
+  text-transform:uppercase; padding:4px 12px;
+  border:1px solid #E8E2DC; border-radius:20px;
+  color:var(--grey);
+}
+
+/* ── CORPS DE L'ARTICLE ── */
+.article-body {
+  max-width:760px; margin:0 auto; padding:72px 48px;
+}
+
+/* Paragraphes */
+.article-body p {
+  font-size:19px; color:var(--mid); line-height:1.85;
+  margin-bottom:28px;
+}
+
+/* Titres de section */
+.article-body h2 {
+  font-family:var(--serif); font-size:42px; font-weight:400;
+  color:var(--dark); line-height:1.2;
+  margin:60px 0 20px;
+}
+.article-body h2 em { font-style:italic; color:var(--ocre); }
+
+.article-body h3 {
+  font-family:var(--serif); font-size:28px; font-weight:400;
+  color:var(--dark); line-height:1.3;
+  margin:40px 0 16px;
+}
+.article-body h3 em { font-style:italic; color:var(--terra); }
+
+/* Citation mise en avant */
+.article-pullquote {
+  border-left:3px solid var(--ocre);
+  padding:24px 0 24px 36px;
+  margin:48px 0;
+}
+.article-pullquote p {
+  font-family:var(--serif); font-style:italic;
+  font-size:26px; color:var(--dark); line-height:1.5;
+  margin-bottom:0;
+}
+
+/* Placeholder image */
+.img-placeholder {
+  width:100%; background:var(--light);
+  border:1px solid #E8E2DC;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:12px; border-radius:3px;
+  margin:48px 0;
+  text-decoration:none;
+}
+.img-placeholder-tall { height:520px; }
+.img-placeholder-medium { height:400px; }
+.img-placeholder-short { height:300px; }
+.img-placeholder-icon {
+  font-size:36px; opacity:0.4;
+}
+.img-placeholder-label {
+  font-size:11px; font-weight:500; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--grey);
+}
+.img-placeholder-name {
+  font-family:var(--serif); font-style:italic;
+  font-size:16px; color:var(--mid);
+}
+
+/* Grille 2 images */
+.img-grid-2 {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:16px; margin:48px 0;
+}
+/* Grille 3 images */
+.img-grid-3 {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:16px; margin:48px 0;
+}
+.img-grid-2 .img-placeholder,
+.img-grid-3 .img-placeholder { margin:0; }
+
+/* Légende image */
+.img-caption {
+  font-size:13px; color:var(--grey); font-style:italic;
+  text-align:center; margin-top:-32px; margin-bottom:48px;
+  line-height:1.5;
+}
+
+/* Trait de séparation */
+.article-divider {
+  border:none; border-top:1px solid #E8E2DC;
+  margin:56px 0;
+}
+
+/* Liste */
+.article-body ul {
+  list-style:none; margin:0 0 28px 0; padding:0;
+}
+.article-body ul li {
+  font-size:19px; color:var(--mid); line-height:1.85;
+  padding:8px 0 8px 24px; position:relative;
+  border-bottom:1px solid #F0EBE5;
+}
+.article-body ul li::before {
+  content:'—'; position:absolute; left:0;
+  color:var(--ocre); font-weight:400;
+}
+
+/* Mot de fin */
+.article-conclusion {
+  background:var(--light); border-left:3px solid var(--sage);
+  padding:40px 40px; margin:60px 0; border-radius:0 4px 4px 0;
+}
+.article-conclusion p {
+  font-family:var(--serif); font-style:italic;
+  font-size:22px; color:var(--dark); line-height:1.6;
+  margin-bottom:0;
+}
+
+/* Navigation article suivant/précédent */
+.article-nav {
+  border-top:1px solid #E8E2DC;
+  padding:60px 48px;
+  max-width:760px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center; gap:24px;
+}
+.article-nav-item {
+  text-decoration:none; color:inherit;
+  flex:1; padding:28px;
+  background:var(--light); border-radius:3px;
+  transition:background 0.2s;
+}
+.article-nav-item:hover { background:#EDE8E0; }
+.article-nav-dir {
+  font-size:10px; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--grey); margin-bottom:8px;
+}
+.article-nav-title {
+  font-family:var(--serif); font-size:20px; font-weight:400;
+  color:var(--dark); line-height:1.3;
+}
+.article-nav-next { text-align:right; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--dark); color:#fff;
+  padding:60px 5%; text-align:center;
+  margin-top:0;
+}
+.footer-logo {
+  font-family:var(--sans); font-size:14px; font-weight:600;
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--ocre); margin-bottom:16px;
+}
+.footer-tagline {
+  font-family:var(--serif); font-style:italic;
+  font-size:18px; color:rgba(255,255,255,0.6);
+  margin-bottom:32px;
+}
+.footer-links {
+  display:flex; justify-content:center; gap:32px;
+  font-size:11px; font-weight:300; letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; }
+.footer-links a:hover { color:#fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Calli &amp; Sol</a>
+  <div class="nav-links">
+    <a href="index.html#mag">Le Mag</a>
+    <a href="index.html#selection">Sélection</a>
+    <a href="index.html#ia">IA Studio</a>
+    <a href="index.html#boutique">Boutique</a>
+    <a href="index.html#moodboards">Moodboards</a>
+    <a href="index.html#portrait">Portrait</a>
+    <a href="index.html#quiz">Quiz déco</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">Qui suis-je ?</a>
+  </div>
+  <div class="nav-lang">
+    <button class="active">FR</button>
+    <button>NL</button>
+  </div>
+</nav>
+
+<!-- EN-TÊTE -->
+<header class="article-header">
+  <div class="article-breadcrumb">
+    <a href="index.html">Accueil</a>
+    <span>›</span>
+    <a href="index.html#mag">Le Mag</a>
+    <span>›</span>
+    <span>Matières &amp; Contrastes</span>
+  </div>
+  <div class="article-cat">Matières &amp; Contrastes · Tendance 2026</div>
+  <h1 class="article-title">L'Inox <em>Absolu</em></h1>
+  <p class="article-intro">Longtemps cantonné aux cuisines professionnelles, l'inox s'invite désormais au cœur de nos foyers comme une matière texturée et vivante. Entre reflets solaires et rigueur industrielle, découvrez comment ce métal dialogue avec la chaleur du bois pour redéfinir le luxe minimaliste en 2026.</p>
+  <div class="article-meta">
+    <span class="article-meta-author">Ariane Fonteyne</span>
+    <span class="article-meta-dot">·</span>
+    <span>Avril 2026</span>
+    <span class="article-meta-dot">·</span>
+    <span>8 min de lecture</span>
+    <div class="article-tags">
+      <span class="article-tag">Inox</span>
+      <span class="article-tag">Cuisine</span>
+      <span class="article-tag">Matières</span>
+    </div>
+  </div>
+</header>
+
+<!-- CORPS -->
+<main class="article-body">
+
+  <!-- SECTION 1 : Nathalie Deboel -->
+  <h2>L'Art de l'Essentiel : La Vision Spirituelle de <em>Nathalie Deboel</em></h2>
+
+  <!-- Image 1 -->
+  <div class="img-placeholder img-placeholder-tall">
+    <span class="img-placeholder-icon">🖼</span>
+    <span class="img-placeholder-label">Image à placer</span>
+    <span class="img-placeholder-name">Image_1.png — Cuisine Nathalie Deboel</span>
+  </div>
+
+  <p>Nous commençons notre voyage au cœur de la matière avec une réalisation magistrale de l'architecte d'intérieur Nathalie Deboel. Dans ce projet, le luxe ne réside pas dans l'ornement, mais dans le dialogue pur entre des matériaux vrais. L'espace a été dépouillé pour n'en garder que l'essence, révélant une poutre de béton brut qui structure la pièce.</p>
+
+  <p>La cuisine adopte un look "inox total" délibérément fonctionnel. Ce bloc de métal brossé vient se confronter à la pierre au sol et au bois, affirmant un caractère architectural fort. Pour adoucir cette rigueur, un volume en contreplaqué aux proportions fines cache les espaces intimes. Le mobilier sur mesure de la collection Nomad, en chêne robuste, ajoute une dimension spirituelle et apaisante. Une leçon de simplicité volontaire.</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 2 : Jean Nouvel x Reform -->
+  <h2>La Cuisine Vivid : Jean Nouvel × Reform et la Collection <em>REFLECT</em></h2>
+
+  <!-- Grille 3 images -->
+  <div class="img-grid-3">
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">REFLECT · 1/3</span>
+    </div>
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">REFLECT · 2/3</span>
+    </div>
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">REFLECT · 3/3</span>
+    </div>
+  </div>
+  <p class="img-caption">Collection REFLECT — Jean Nouvel × Reform</p>
+
+  <p>Après l'épure de Nathalie Deboel, place au design iconique. Jean Nouvel a collaboré avec Reform pour créer REFLECT, une cuisine qui traite l'acier non pas comme un bloc froid, mais comme un miroir vivant.</p>
+
+  <p>Cuisine d'architecte par excellence, sa surface en métal brossé avec des stries verticales — une technique qu'il utilise souvent dans son architecture — joue avec notre perception de l'espace. Le métal n'est plus une surface inerte ; il capture le monde environnant pour le restituer avec une douceur inattendue.</p>
+
+  <div class="article-pullquote">
+    <p>Au fil de la journée, selon l'angle du soleil ou vos déplacements, l'aspect de la cuisine évolue subtilement. La finition brossée atténue le caractère industriel pour devenir une œuvre en constante mutation, une véritable matière-lumière.</p>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 3 : Les multiples visages -->
+  <h2>La Matière-Miroir : Les Multiples Visages de <em>l'Inox</em> en Cuisine</h2>
+
+  <p>Inutile de connaître le designer pour être séduit par la puissance visuelle de ces réalisations. L'inox brossé s'impose comme la matière-caméléon des intérieurs modernes.</p>
+
+  <!-- Image 2 -->
+  <div class="img-placeholder img-placeholder-tall">
+    <span class="img-placeholder-icon">🖼</span>
+    <span class="img-placeholder-label">Image à placer</span>
+    <span class="img-placeholder-name">Image_2.png — Inox brossé</span>
+  </div>
+
+  <h3><em>Le Contraste Haussmannien</em></h3>
+  <p>Voyez comment un îlot central en inox industriel, presque brutaliste, s'intègre avec une élégance folle dans un salon aux moulures classiques et au parquet point de Hongrie. C'est la rencontre du passé et du futur.</p>
+
+  <!-- Image 3 -->
+  <div class="img-placeholder img-placeholder-tall">
+    <span class="img-placeholder-icon">🖼</span>
+    <span class="img-placeholder-label">Image à placer</span>
+    <span class="img-placeholder-name">Image_3.png — Contraste Haussmannien</span>
+  </div>
+
+  <h3><em>Le Mariage des Épices</em></h3>
+  <p>Dans une ambiance plus Wabi-Sabi, un plan de travail en pierre ou marbre rouge s'associe à une crédence en inox pour créer un îlot sculptural. Le métal vibre sous une lumière rasante, révélant toute sa texture.</p>
+
+  <!-- Image 4 -->
+  <div class="img-placeholder img-placeholder-tall">
+    <span class="img-placeholder-icon">🖼</span>
+    <span class="img-placeholder-label">Image à placer</span>
+    <span class="img-placeholder-name">Image_4.png — Wabi-Sabi &amp; Inox</span>
+  </div>
+
+  <h3>L'Inox Strié vs. <em>Brossé</em></h3>
+  <p>Comparez la silhouette épurée et les reflets du métal brossé avec le design texturé des stries verticales. L'un est lisse et éthéré, l'autre est rythmé et vibrant. Deux langages, une même matière : l'Inox.</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 4 : Sarah Lavoine -->
+  <h2>Le Duo Sculptural : Collection <em>Gégé</em> — Maison Sarah Lavoine</h2>
+
+  <!-- Grille 3 images -->
+  <div class="img-grid-3">
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">Gégé · Table 1/3</span>
+    </div>
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">Gégé · Table 2/3</span>
+    </div>
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">Gégé · Table 3/3</span>
+    </div>
+  </div>
+  <p class="img-caption">Collection Gégé — Maison Sarah Lavoine</p>
+
+  <p>Après l'architecture, passons au mobilier avec la créatrice parisienne. Sarah Lavoine réinvente le brutalisme en travaillant l'acier comme un tissu. Fabriquée artisanalement en Italie, la collection Gégé en inox brossé semble se plier en vagues fluides, créant des structures aériennes et ouvertes.</p>
+
+  <ul>
+    <li><strong>La Table d'Appoint</strong> — Parfaite pour accueillir des magazines ou des livres d'art dans sa niche épurée.</li>
+    <li><strong>La Table Basse</strong> — Une pièce maîtresse sculpturale qui impose sa présence élégante et glamour au centre du salon.</li>
+  </ul>
+
+  <p>C'est l'exemple parfait où l'aspect primaire du métal rencontre la douceur d'une silhouette en mouvement.</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 5 : Doa -->
+  <h2>Le Minimalisme Radical : La Table <em>Doa</em> par Modan</h2>
+
+  <!-- Image Doa -->
+  <div class="img-placeholder img-placeholder-tall">
+    <span class="img-placeholder-icon">🖼</span>
+    <span class="img-placeholder-label">Image à placer</span>
+    <span class="img-placeholder-name">Table Doa — Modan / Galerie Paradis</span>
+  </div>
+
+  <p>Pour clore cette sélection, nous avons eu le coup de cœur pour la table Doa, créée par Paul Touillon pour Modan (exclusivité Galerie Paradis). C'est l'épuration ultime : une seule feuille d'acier pliée pour donner naissance à l'objet.</p>
+
+  <p>Pas d'assemblage, pas de fixations, juste une silhouette drapée. Le métal est travaillé avec une telle exigence que les imperfections de fabrication font partie de son identité unique. Qu'elle soit utilisée comme table de salle à manger ou comme bureau sculptural, elle transforme l'inox en une pièce de collection intemporelle.</p>
+
+  <div class="article-pullquote">
+    <p>"Le métal devient tout : la structure, le support, la silhouette, l'identité et la beauté. C'est l'essence même de Modan."</p>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 6 : Accessoires -->
+  <h2>Le Détail qui Change Tout : Westwing et les <em>Accessoires de Table</em></h2>
+
+  <p>Pour prolonger cette esthétique jusque sur votre plan de travail, on craque pour ces accessoires qui mêlent utile et sculptural.</p>
+
+  <!-- Grille 2 images accessoires -->
+  <div class="img-grid-2">
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">Duo Sel &amp; Poivre — Westwing</span>
+    </div>
+    <div class="img-placeholder img-placeholder-medium">
+      <span class="img-placeholder-icon">🖼</span>
+      <span class="img-placeholder-label">Image à placer</span>
+      <span class="img-placeholder-name">Tire-Bouchon Alessandro M. — Alessi</span>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Le Duo Sel &amp; Poivre Westwing</strong> — L'alliance du chêne massif et de l'acier inoxydable brossé rappelle les lignes de la cuisine REFLECT de Jean Nouvel, mais à une échelle plus intime. Un petit objet sculptural qui prouve que le métal rencontre le bois avec beaucoup de poésie.</li>
+    <li><strong>Le Tire-Bouchon Alessi</strong> — Pour la table, on choisit des icônes comme le célèbre tire-bouchon "Alessandro M." en inox brillant, un petit bijou de design pop et technique qui fait toujours son effet.</li>
+  </ul>
+
+  <!-- Mot de fin -->
+  <div class="article-conclusion">
+    <p>En 2026, l'inox brossé n'est plus froid ni technique : il est la matière texturée, vivante et sensuelle des intérieurs qui ont une âme.</p>
+  </div>
+
+</main>
+
+<!-- NAVIGATION ARTICLES -->
+<nav class="article-nav">
+  <a href="index.html" class="article-nav-item">
+    <div class="article-nav-dir">← Retour</div>
+    <div class="article-nav-title">Le Mag · En ce moment</div>
+  </a>
+  <a href="article-briques-de-verre.html" class="article-nav-item article-nav-next">
+    <div class="article-nav-dir">Article suivant →</div>
+    <div class="article-nav-title">Translucidité : sculpter la lumière intérieure</div>
+  </a>
+</nav>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Calli &amp; Sol</div>
+  <div class="footer-tagline">La maison du soleil</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="index.html#mag">Le Mag</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#about">Qui suis-je ?</a>
+  </div>
+</footer>
+
+</body>
+</html>

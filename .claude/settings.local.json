@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"/Users/arianefonteyne/Desktop/CALLI & SOL\")",
+      "Bash(ls \"/Users/arianefonteyne/Desktop/CALLI & SOL/SITE OFFICIEL CALLI&SOL/images/\")",
+      "Bash(ls -lhS \"Bois brut, béton ciré, lin, pierre & papier — les matières qui ont une âme._files/\")"
+    ]
+  }
+}
