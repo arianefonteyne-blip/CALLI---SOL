@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CALLI & SOL — La maison du soleil</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
   --ocre: #D4920A;
@@ -17,12 +17,13 @@
   --mid: #4A3828;
   --grey: #9A8A80;
   --light: #F8F4EE;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Jost', sans-serif;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Montserrat', sans-serif;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:20px; line-height:1.8; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:22px; line-height:1.8; }
 .section-container {
   max-width:1100px; margin:0 auto; padding:0 48px;
 }
@@ -38,7 +39,7 @@ nav {
   gap:0;
 }
 .nav-logo {
-  font-family:var(--sans); font-weight:400;
+  font-family:var(--display); font-weight:400;
   font-size:15px; letter-spacing:0.22em;
   color:var(--dark); text-transform:uppercase;
   text-decoration:none; white-space:nowrap;
@@ -77,7 +78,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 6% 80px;
+  padding: 70px 6%;
   position: relative;
   overflow: hidden;
 }
@@ -93,20 +94,20 @@ nav {
   align-items: center;
   gap: 36px;
   position: relative;
-  align-self: flex-start;
-  margin-top: 32px;
+  align-self: center;
+  margin-top: 0;
 }
 .hero-cercle {
-  width: 74px;
-  height: 74px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: #DBA83A;
   flex-shrink: 0;
 }
 .hero-calli-title {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(44px, 6.5vw, 82px);
+  font-size: clamp(28px, 4vw, 54px);
   letter-spacing: 0.22em;
   color: var(--dark);
   text-transform: uppercase;
@@ -120,16 +121,22 @@ nav {
 }
 .hero-calli-text {
   font-family: var(--serif);
-  font-size: clamp(18px, 1.8vw, 24px);
+  font-size: clamp(13px, 1.2vw, 17px);
   font-style: italic;
   color: var(--dark);
   line-height: 1.8;
 }
-/* Bande dorée en bas */
+/* Bandes dorées haut et bas */
 .hero-calli-bande {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 36px;
+  height: 55px;
+  background: #E2BC78;
+}
+.hero-calli-bande-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 55px;
   background: #E2BC78;
 }
 /* Espace entre bande et section suivante */
@@ -170,7 +177,7 @@ section {
   width:24px; height:1px; background:var(--ocre);
 }
 .section-heading {
-  font-family:var(--serif); font-size:38px; font-weight:400;
+  font-family:var(--serif); font-size:42px; font-weight:400;
   color:var(--dark); line-height:1.15;
   margin-bottom:0;
 }
@@ -306,11 +313,11 @@ section {
   text-transform:uppercase; color:var(--grey); margin-bottom:8px;
 }
 .mag-title {
-  font-family:var(--serif); font-size:24px; font-weight:400;
+  font-family:var(--serif); font-size:27px; font-weight:400;
   color:var(--dark); line-height:1.25; margin-bottom:8px;
 }
 .mag-excerpt {
-  font-size:17px; color:var(--grey); line-height:1.75;
+  font-size:19px; color:var(--grey); line-height:1.75;
   margin-bottom:12px;
 }
 .mag-lire {
@@ -336,7 +343,7 @@ section {
   width:24px; height:1px; background:var(--ocre);
 }
 .section-title {
-  font-family:var(--serif); font-size:38px; font-weight:400;
+  font-family:var(--serif); font-size:42px; font-weight:400;
   color:var(--dark); line-height:1.15;
   margin-bottom:0;
 }
@@ -380,7 +387,7 @@ section {
 
 /* IA Studio */
 .ia-desc {
-  max-width:580px; color:var(--grey); font-size:20px;
+  max-width:580px; color:var(--grey); font-size:22px;
   line-height:1.75; margin-bottom:40px;
 }
 .ia-tabs {
@@ -437,7 +444,7 @@ section {
 
 /* Quiz */
 .quiz-desc {
-  max-width:500px; color:var(--mid); font-size:20px;
+  max-width:500px; color:var(--mid); font-size:22px;
   line-height:1.7; margin-bottom:40px;
 }
 .quiz-styles {
@@ -507,7 +514,7 @@ section {
 }
 .vibe-title em { font-style:italic; color:var(--terra); }
 .vibe-title .et { font-style:italic; color:var(--turq); }
-.vibe-desc { font-size:19px; color:var(--mid); line-height:1.7; }
+.vibe-desc { font-size:21px; color:var(--mid); line-height:1.7; }
 .vibe-palette {
   display:flex; height:60px; border-radius:4px;
   overflow:hidden; margin-top:30px;
@@ -537,10 +544,10 @@ section {
   width:24px; height:1px; background:var(--ocre);
 }
 .pop-title {
-  font-family:var(--serif); font-size:52px; font-weight:400;
+  font-family:var(--serif); font-size:40px; font-weight:400;
   color:var(--dark); line-height:1.15;
 }
-.pop-title em { font-style:italic; color:var(--ocre); }
+.pop-title em { font-style:italic; color:var(--dark); }
 .popular-grid {
   display:grid; grid-template-columns:repeat(3,1fr); gap:48px;
 }
@@ -566,11 +573,11 @@ section {
 .pop-article-tag.wabi-sabi    { border-color:#8BBFB5; color:#8BBFB5; }
 .pop-article-tag.minimalisme  { border-color:#C0583A; color:#C0583A; }
 .pop-article-title {
-  font-family:var(--serif); font-size:28px; font-weight:400;
+  font-family:var(--serif); font-size:23px; font-weight:400;
   color:var(--dark); line-height:1.3; margin-bottom:16px; flex-grow:1;
 }
 .pop-article-excerpt {
-  font-size:20px; color:var(--grey); line-height:1.75;
+  font-size:17px; color:var(--grey); line-height:1.75;
   margin-bottom:20px; flex-grow:1;
 }
 .pop-read-more {
@@ -599,7 +606,7 @@ section {
   width:24px; height:1px; background:var(--ocre);
 }
 .exp-title {
-  font-family:var(--serif); font-size:52px; font-weight:400;
+  font-family:var(--serif); font-size:42px; font-weight:400;
   color:var(--dark); line-height:1.15;
 }
 .exp-title em { font-style:italic; color:var(--ocre); }
@@ -620,7 +627,7 @@ section {
   color:var(--dark); line-height:1.3; margin-bottom:20px; flex-grow:1;
 }
 .exp-article-desc {
-  font-size:19px; color:var(--grey); line-height:1.8;
+  font-size:21px; color:var(--grey); line-height:1.8;
   margin-bottom:24px; flex-grow:1;
 }
 
@@ -736,6 +743,7 @@ footer {
 
 <!-- HERO -->
 <div class="hero-calli">
+  <div class="hero-calli-bande-top"></div>
   <div class="hero-calli-left">
     <div class="hero-cercle"></div>
     <div class="hero-calli-title">CALLI &amp; SOL</div>
@@ -763,12 +771,12 @@ footer {
   <div class="popular-grid">
     <article class="pop-article">
       <div class="pop-number">01</div>
-      <img src="images/inox/cuisine-metal.jpg" alt="L'Inox Absolu" style="width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:3px; margin-bottom:20px;">
       <div class="pop-tags">
         <span class="pop-article-tag design-iconique">Design Iconique</span>
         <span class="pop-article-tag architecture">Matières</span>
       </div>
       <h3 class="pop-article-title">L'Inox Absolu : la rencontre de l'acier et du bois, une harmonie de contrastes</h3>
+      <img src="images/inox/cuisine-metal.jpg" alt="L'Inox Absolu" style="width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:3px; margin-bottom:20px;">
       <p class="pop-article-excerpt">L'acier inoxydable redécouvert pour sa beauté brute et minimaliste. Comment intégrer cet élément industriel dans un intérieur chaleureux et naturel. Une tendance 2026 qui sublime les contrastes.</p>
       <a href="https://calli-sol-deco.my.canva.site/article-inox" class="pop-read-more">Lire la suite →</a>
     </article>
@@ -785,17 +793,16 @@ footer {
     </article>
     
     <article class="pop-article">
-      <div class="pop-number">03</div>
-      <div class="pop-tags">
-        <span class="pop-article-tag matieres">Matières Brutes</span>
-        <span class="pop-article-tag wabi-sabi">Wabi-Sabi</span>
-      </div>
-      <h3 class="pop-article-title">Wabi-Sabi : L'Éloge de l'Épure</h3>
-      <p class="pop-article-excerpt">L'art de l'imparfait et la beauté du temps qui passe. Plongez dans notre exploration visuelle de l'esthétique japonaise appliquée à l'art de vivre contemporain.</p>
-      <a href="https://calli-sol-deco.my.canva.site/" class="pop-read-more">Lire la suite →</a>
-    </article>
+  <div class="pop-number">03</div>
+  <div class="pop-tags">
+    <span class="pop-article-tag matieres">Matières Brutes</span>
+    <span class="pop-article-tag wabi-sabi">Wabi-Sabi</span>
   </div>
-</section>
+  <h3 class="pop-article-title">Wabi-Sabi : L'Éloge de l'Épure</h3>
+  <img src="images/wabi/wabi-cover.jpg" alt="Wabi-Sabi" style="width:100%; aspect-ratio:3/2; object-fit:cover; border-radius:3px; margin-bottom:20px;">
+  <p class="pop-article-excerpt">L'art de l'imparfait et la beauté du temps qui passe. Plongez dans notre exploration visuelle de l'esthétique japonaise appliquée à l'art de vivre contemporain.</p>
+  <a href="https://calli-sol-deco.my.canva.site/" class="pop-read-more">Lire la suite →</a>
+</article>
 
 <svg class="frise frise-divider frise-fullwidth" viewBox="0 0 1200 16" preserveAspectRatio="none" width="100%" height="16" style="background:#8FABA8;">
   <defs>
@@ -1011,4 +1018,4 @@ footer {
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const ss=document.querySelectorAll('section[id]'),nl=document.querySelectorAll('nav a');
-window.addEventListener('scroll',()=>{let c='';ss.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id;});nl.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+c)a.classList.add('ac
+window.addEventListener('scroll',()=>{let c='';ss.forEach(s=>{if(window.scrollY>=s.offsetTop-80)c=s.id;});nl.forEach(a=>{a.classList.remove('active');if(a.getAttribute('href')==='#'+c)a.classList.add('active');});});
