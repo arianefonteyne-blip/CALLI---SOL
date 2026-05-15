@@ -3,7 +3,25 @@
     "allow": [
       "Bash(ls \"/Users/arianefonteyne/Desktop/CALLI & SOL\")",
       "Bash(ls \"/Users/arianefonteyne/Desktop/CALLI & SOL/SITE OFFICIEL CALLI&SOL/images/\")",
-      "Bash(ls -lhS \"Bois brut, béton ciré, lin, pierre & papier — les matières qui ont une âme._files/\")"
+      "Bash(ls -lhS \"Bois brut, béton ciré, lin, pierre & papier — les matières qui ont une âme._files/\")",
+      "Bash(gh repo *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(python3 -c *)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import json,sys; d=json.load(sys.stdin); f=d.get('tool_input',{}).get('file_path',''); exit(0 if 'index_10.html' in f else 1)\" && cp \"/Users/arianefonteyne/Desktop/CALLI & SOL/SITE OFFICIEL CALLI&SOL/index_10.html\" \"/Users/arianefonteyne/Desktop/CALLI & SOL/index.html\" 2>/dev/null || true",
+            "statusMessage": "Sync index_10.html → index.html"
+          }
+        ]
+      }
     ]
   }
 }
