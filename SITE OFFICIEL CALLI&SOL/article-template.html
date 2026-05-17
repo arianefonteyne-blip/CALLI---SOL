@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titre de l'article — Calli &amp; Sol</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --ocre-deep: #B8780A;
+  --terra: #C0583A;
+  --sage: #8BBFB5;
+  --turquoise-pastel: #DDF3F1;
+  --bleu-pale-magazine: #E8FBF8;
+  --dark: #1A1410;
+  --mid: #4A3828;
+  --grey: #9A8A80;
+  --light: #F8F4EE;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Jost', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:18px; line-height:1.8; overflow-x:hidden; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:#fff;
+  border-bottom:1px solid #E8E2DC;
+  display:flex; align-items:center;
+  padding:0 48px;
+  height:64px;
+  gap:0;
+}
+.nav-logo {
+  font-family:var(--display); font-weight:400;
+  font-size:15px; letter-spacing:0.22em;
+  color:var(--dark); text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  margin-right:48px;
+}
+.nav-links {
+  display:flex; align-items:stretch; flex:1; overflow-x:auto;
+}
+.nav-links a {
+  display:flex; align-items:center;
+  padding:0 18px; height:64px;
+  font-size:13px; font-weight:400; letter-spacing:0.04em;
+  text-decoration:none;
+  color:var(--dark); white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:border-color 0.2s;
+}
+.nav-links a:hover { border-bottom-color:var(--ocre); }
+.nav-lang {
+  margin-left:auto;
+  display:flex; gap:0; font-size:15px; font-weight:400;
+  letter-spacing:0.12em;
+}
+.nav-lang button {
+  border:none; background:none; cursor:pointer;
+  padding:0 14px; color:var(--grey); font-family:var(--sans);
+  font-size:15px; font-weight:400; letter-spacing:0.12em;
+}
+.nav-lang button.active { color:var(--dark); }
+
+/* ── ARTICLE HERO ── */
+.article-hero {
+  width:100%; height:520px;
+  overflow:hidden; position:relative;
+}
+.article-hero img {
+  width:100%; height:100%; object-fit:cover;
+}
+.article-hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+}
+.article-hero-meta {
+  position:absolute; bottom:48px; left:0; right:0;
+  max-width:820px; margin:0 auto; padding:0 48px;
+}
+.article-category {
+  display:inline-block;
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:#fff; background:var(--ocre);
+  padding:4px 12px; border-radius:2px; margin-bottom:16px;
+}
+.article-hero-meta h1 {
+  font-family:var(--serif); font-size:42px; font-weight:400;
+  color:#fff; line-height:1.25;
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+  max-width:820px; margin:0 auto; padding:72px 48px;
+}
+.article-intro {
+  font-family:var(--serif); font-style:italic;
+  font-size:20px; line-height:1.7; color:var(--mid);
+  margin-bottom:56px;
+  padding-bottom:40px; border-bottom:1px solid #E8E2DC;
+}
+.article-body h2 {
+  font-family:var(--serif); font-size:26px; font-weight:400;
+  color:var(--dark); margin:56px 0 20px;
+}
+.article-body p {
+  font-size:16px; line-height:1.85; color:var(--mid);
+  margin-bottom:24px;
+}
+.article-body strong { color:var(--dark); font-weight:600; }
+
+/* ── PHOTOS ── */
+.article-photo {
+  width:100%; margin:48px 0;
+}
+.article-photo img {
+  width:100%; aspect-ratio:3/2; object-fit:cover;
+  border-radius:3px; display:block;
+}
+.article-photo-caption {
+  font-size:12px; color:var(--grey); font-style:italic;
+  margin-top:10px; text-align:center; letter-spacing:0.02em;
+}
+.article-photo-duo {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:16px; margin:48px 0;
+}
+.article-photo-duo img {
+  width:100%; aspect-ratio:3/2; object-fit:cover;
+  border-radius:3px; display:block;
+}
+
+/* ── CITATION ── */
+.article-quote {
+  border-left:3px solid var(--ocre);
+  padding:24px 32px; margin:56px 0;
+  background:var(--light);
+  border-radius:0 4px 4px 0;
+}
+.article-quote p {
+  font-family:var(--serif); font-style:italic;
+  font-size:20px; line-height:1.6; color:var(--dark);
+  margin:0;
+}
+
+/* ── SELECTION PRODUITS ── */
+.article-selection {
+  background:var(--light); border-radius:6px;
+  padding:40px 40px 32px; margin:64px 0;
+}
+.article-selection-label {
+  font-size:11px; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ocre);
+  margin-bottom:20px;
+}
+.article-selection h3 {
+  font-family:var(--serif); font-size:22px; font-weight:400;
+  color:var(--dark); margin-bottom:28px;
+}
+.produits-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.produit-card {
+  background:#fff; border-radius:4px; overflow:hidden;
+  border:1px solid #E8E2DC;
+}
+.produit-card-img {
+  width:100%; aspect-ratio:1/1; object-fit:cover;
+  background:#E8E2DC; display:block;
+}
+.produit-card-img-placeholder {
+  width:100%; aspect-ratio:1/1;
+  background:#E8E2DC; display:flex;
+  align-items:center; justify-content:center;
+  font-size:12px; color:var(--grey); letter-spacing:0.06em;
+}
+.produit-card-body {
+  padding:14px 16px 18px;
+}
+.produit-card-brand {
+  font-size:10px; font-weight:500; letter-spacing:0.14em;
+  text-transform:uppercase; color:var(--grey); margin-bottom:4px;
+}
+.produit-card-name {
+  font-size:14px; color:var(--dark); line-height:1.4;
+  margin-bottom:10px;
+}
+.produit-card-link {
+  font-size:12px; font-weight:500; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--ocre);
+  text-decoration:none;
+}
+.produit-card-link:hover { color:var(--ocre-deep); }
+
+/* ── TAGS ARTICLE ── */
+.article-tags {
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin:56px 0 0; padding-top:40px;
+  border-top:1px solid #E8E2DC;
+}
+.article-tag {
+  font-size:11px; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--grey);
+  border:1px solid #E8E2DC; border-radius:2px;
+  padding:5px 12px; text-decoration:none;
+}
+.article-tag:hover { color:var(--dark); border-color:var(--dark); }
+
+/* ── NEWSLETTER ── */
+.newsletter-section {
+  background:#F5F3F0; padding:120px 5%; text-align:center;
+}
+.newsletter-section h2 {
+  font-family:var(--serif); font-size:32px; color:var(--dark);
+  margin-bottom:12px; font-weight:400;
+}
+.newsletter-section p {
+  font-size:16px; color:var(--mid); margin-bottom:28px;
+  font-family:var(--sans);
+}
+.newsletter-form {
+  max-width:500px; margin:0 auto; display:flex;
+  align-items:center; border-bottom:1px solid var(--dark);
+  padding-bottom:8px;
+}
+.newsletter-form input {
+  flex:1; background:transparent; border:none; outline:none;
+  font-size:16px; font-family:var(--sans); color:var(--dark);
+  padding:8px 0;
+}
+.newsletter-form input::placeholder { color:var(--grey); }
+.newsletter-form button {
+  background:none; border:none; color:var(--dark);
+  font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  cursor:pointer; padding-left:16px;
+}
+.newsletter-form button:hover { color:var(--ocre); }
+
+/* ── FOOTER ── */
+footer {
+  background:#B0705A; color:#fff; padding:60px 48px 30px;
+}
+.footer-top {
+  display:grid; grid-template-columns:1.5fr repeat(3,1fr); gap:50px;
+  margin-bottom:50px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.15);
+}
+.footer-logo {
+  font-family:var(--sans); font-weight:600; font-size:20px;
+  letter-spacing:0.18em; color:#fff; margin-bottom:10px;
+}
+.footer-logo span { color:var(--ocre); }
+.footer-tagline {
+  font-family:var(--serif); font-style:italic; font-size:15px;
+  color:rgba(255,255,255,0.6); margin-bottom:20px; line-height:1.5;
+}
+.footer-contact {
+  font-size:13px; color:rgba(255,255,255,0.65); line-height:1.8;
+}
+.footer-contact a { color:var(--sage); text-decoration:none; }
+.footer-col h4 {
+  font-size:11px; font-weight:500; letter-spacing:0.16em;
+  text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:18px;
+}
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul li a {
+  color:rgba(255,255,255,0.8); text-decoration:none; font-size:14px;
+}
+.footer-col ul li a:hover { color:#fff; }
+.footer-bottom {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.footer-copy { font-size:12px; color:rgba(255,255,255,0.4); }
+.footer-langs {
+  display:flex; gap:16px; font-size:12px; color:rgba(255,255,255,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index_10.html" class="nav-logo">Calli &amp; Sol</a>
+  <div class="nav-links">
+    <a href="index_10.html#a-la-une">Le Mag • À la une</a>
+    <a href="index_10.html#selection">Sélection</a>
+    <a href="index_10.html#ia-studio">Studio IA</a>
+    <a href="index_10.html#quiz">Quiz déco</a>
+    <a href="index_10.html#qui-suis-je">À propos</a>
+  </div>
+  <div class="nav-lang">
+    <button class="active">FR</button>
+    <button>NL</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<!-- Remplacer le src par le chemin de l'image principale de l'article -->
+<div class="article-hero">
+  <img src="images/VOTRE-IMAGE-HERO.jpg" alt="Description de l'image hero">
+  <div class="article-hero-overlay"></div>
+  <div class="article-hero-meta">
+    <!-- Catégorie : ex. Design Iconique / Matières Brutes / Wabi-Sabi / Couleur -->
+    <span class="article-category">Catégorie</span>
+    <h1>Titre principal de l'article</h1>
+  </div>
+</div>
+
+<!-- ── CORPS DE L'ARTICLE ── -->
+<article class="article-body">
+
+  <!-- Chapô / introduction -->
+  <p class="article-intro">
+    Phrase d'accroche en italique qui résume l'article en 2-3 lignes. Elle donne envie de lire la suite et pose le ton.
+  </p>
+
+  <!-- SECTION 1 -->
+  <h2>Premier titre de section</h2>
+  <p>
+    Premier paragraphe de texte. Remplacez ce contenu par votre rédaction. Vous pouvez mettre en valeur certains mots avec du <strong>gras</strong> pour souligner une idée clé.
+  </p>
+  <p>
+    Deuxième paragraphe. Continuez votre développement ici.
+  </p>
+
+  <!-- Photo simple -->
+  <div class="article-photo">
+    <!-- Remplacer le src par le chemin de votre image -->
+    <img src="images/VOTRE-IMAGE-1.jpg" alt="Description de l'image">
+    <p class="article-photo-caption">Légende de la photo — Source : Nom de la source</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2>Deuxième titre de section</h2>
+  <p>
+    Texte de la deuxième section. Développez votre idée ici avec autant de paragraphes que nécessaire.
+  </p>
+
+  <!-- Citation mise en valeur -->
+  <blockquote class="article-quote">
+    <p>"Une citation forte qui résume une idée clé de l'article, ou une citation d'un designer, architecte, ou autre source."</p>
+  </blockquote>
+
+  <p>
+    Suite du texte après la citation.
+  </p>
+
+  <!-- Deux photos côte à côte -->
+  <div class="article-photo-duo">
+    <img src="images/VOTRE-IMAGE-2.jpg" alt="Description image gauche">
+    <img src="images/VOTRE-IMAGE-3.jpg" alt="Description image droite">
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2>Troisième titre de section</h2>
+  <p>
+    Texte de la troisième section. Continuez votre développement ici.
+  </p>
+
+  <!-- Photo simple -->
+  <div class="article-photo">
+    <img src="images/VOTRE-IMAGE-4.jpg" alt="Description de l'image">
+    <p class="article-photo-caption">Légende de la photo — Source : Nom de la source</p>
+  </div>
+
+  <!-- SELECTION PRODUITS 1 -->
+  <div class="article-selection">
+    <div class="article-selection-label">Sélection Calli &amp; Sol</div>
+    <h3>Notre sélection — Titre de la sélection</h3>
+    <div class="produits-grid">
+
+      <div class="produit-card">
+        <!-- Option 1 : avec image -->
+        <!-- <img src="images/produit-1.jpg" alt="Nom du produit" class="produit-card-img"> -->
+        <!-- Option 2 : sans image (placeholder) -->
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4 (optionnelle) -->
+  <h2>Quatrième titre de section</h2>
+  <p>
+    Texte conclusif ou dernière idée développée. Terminez l'article avec une pensée ou une invitation à l'action.
+  </p>
+
+  <!-- SELECTION PRODUITS 2 (optionnelle) -->
+  <div class="article-selection">
+    <div class="article-selection-label">À shopper</div>
+    <h3>Coup de coeur — Titre de la deuxième sélection</h3>
+    <div class="produits-grid">
+
+      <div class="produit-card">
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+      <div class="produit-card">
+        <div class="produit-card-img-placeholder">Photo produit</div>
+        <div class="produit-card-body">
+          <div class="produit-card-brand">Marque</div>
+          <div class="produit-card-name">Nom du produit ou de l'objet</div>
+          <a href="#" class="produit-card-link" target="_blank">Voir le produit →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Tags de l'article -->
+  <div class="article-tags">
+    <a href="#" class="article-tag">Tag 1</a>
+    <a href="#" class="article-tag">Tag 2</a>
+    <a href="#" class="article-tag">Tag 3</a>
+    <a href="#" class="article-tag">Tag 4</a>
+  </div>
+
+</article>
+
+<!-- ── NEWSLETTER ── -->
+<section class="newsletter-section">
+  <h2>Rejoignez la communauté</h2>
+  <p>Calli &amp; Sol · Chaque quinzaine, inspirations, conseils et tendances directement dans votre boîte mail</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Bienvenue ! Merci de rejoindre Calli & Sol.'); this.reset();">
+    <input type="email" placeholder="Votre adresse email" required>
+    <button type="submit">S'inscrire</button>
+  </form>
+</section>
+
+<!-- ── FRISE ── -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24" preserveAspectRatio="none" width="100%" height="24" style="display:block;background:#FFFFFF">
+  <defs>
+    <pattern id="frise-footer-pattern" x="0" y="0" width="34" height="24" patternUnits="userSpaceOnUse">
+      <polygon points="4,21 17,3 30,21" fill="#8FABA8"/>
+      <polygon points="38,21 51,3 64,21" fill="#D6EDEA"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="24" fill="url(#frise-footer-pattern)"/>
+</svg>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">CALLI <span>&</span> SOL</div>
+      <div class="footer-tagline">La maison du soleil · Sans règles, avec amour.</div>
+      <div class="footer-contact">
+        hello@calli-sol.be<br>
+        +32 474 97 65 22<br>
+        <a href="#">Instagram</a> · <a href="#">Pinterest</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>RUBRIQUES</h4><ul><li><a href="#">Meuble de la semaine</a></li><li><a href="#">Objet déco</a></li><li><a href="#">Luminaire</a></li><li><a href="#">Couleur</a></li><li><a href="#">Boutique</a></li></ul></div>
+    <div class="footer-col"><h4>SERVICES</h4><ul><li><a href="#">Découverte gratuite</a></li><li><a href="#">Coaching déco</a></li><li><a href="#">Carnet d'aménagement</a></li><li><a href="#">Mission complète</a></li></ul></div>
+    <div class="footer-col"><h4>À PROPOS</h4><ul><li><a href="#">Qui suis-je ?</a></li><li><a href="#">Ma vibe déco</a></li><li><a href="#">IA Studio</a></li><li><a href="#">Contact</a></li><li><a href="#">Mentions légales</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Ariane Fonteyne — Tous droits réservés</div>
+    <div class="footer-langs"><span>🇧🇪 BE</span><span>🇱🇺 LU</span><span>🇫🇷 FR</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
