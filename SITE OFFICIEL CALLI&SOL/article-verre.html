@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Block — Calli &amp; Sol</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --ocre-deep: #B8780A;
+  --terra: #C0583A;
+  --sage: #8BBFB5;
+  --turquoise-pastel: #DDF3F1;
+  --bleu-pale-magazine: #E8FBF8;
+  --dark: #1A1410;
+  --mid: #4A3828;
+  --grey: #9A8A80;
+  --light: #F8F4EE;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Jost', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:18px; line-height:1.8; overflow-x:hidden; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:#fff;
+  border-bottom:1px solid #E8E2DC;
+  display:flex; align-items:center;
+  padding:0 48px;
+  height:64px;
+  gap:0;
+}
+.nav-logo {
+  font-family:var(--display); font-weight:400;
+  font-size:15px; letter-spacing:0.22em;
+  color:var(--dark); text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  margin-right:48px;
+}
+.nav-links {
+  display:flex; align-items:stretch; flex:1; overflow-x:auto;
+}
+.nav-links a {
+  display:flex; align-items:center;
+  padding:0 18px; height:64px;
+  font-size:13px; font-weight:400; letter-spacing:0.04em;
+  text-decoration:none;
+  color:var(--dark); white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:border-color 0.2s;
+}
+.nav-links a:hover { border-bottom-color:var(--ocre); }
+.nav-lang {
+  margin-left:auto;
+  display:flex; gap:0; font-size:15px; font-weight:400;
+  letter-spacing:0.12em;
+}
+.nav-lang button {
+  border:none; background:none; cursor:pointer;
+  padding:0 14px; color:var(--grey); font-family:var(--sans);
+  font-size:15px; font-weight:400; letter-spacing:0.12em;
+}
+.nav-lang button.active { color:var(--dark); }
+
+/* ── ARTICLE HERO ── */
+.article-hero {
+  width:100%; height:520px;
+  overflow:hidden; position:relative;
+}
+.article-hero img {
+  width:100%; height:100%; object-fit:cover;
+}
+.article-hero-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+}
+.article-hero-meta {
+  position:absolute; bottom:48px; left:0; right:0;
+  max-width:820px; margin:0 auto; padding:0 48px;
+}
+.article-category {
+  display:inline-block;
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:#fff; background:var(--ocre);
+  padding:4px 12px; border-radius:2px; margin-bottom:16px;
+}
+.article-hero-meta h1 {
+  font-family:var(--serif); font-size:42px; font-weight:400;
+  color:#fff; line-height:1.25;
+  font-style:italic;
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+  max-width:820px; margin:0 auto; padding:72px 48px;
+}
+.article-intro {
+  font-family:var(--serif); font-style:italic;
+  font-size:20px; line-height:1.7; color:var(--mid);
+  margin-bottom:56px;
+  padding-bottom:40px; border-bottom:1px solid #E8E2DC;
+}
+.article-body h2 {
+  font-family:var(--serif); font-size:26px; font-weight:400;
+  color:var(--dark); margin:56px 0 20px;
+}
+.article-body h2 em {
+  font-style:italic; color:var(--mid);
+}
+.article-body p {
+  font-size:16px; line-height:1.85; color:var(--mid);
+  margin-bottom:24px;
+}
+.article-body strong { color:var(--dark); font-weight:600; }
+
+/* ── PHOTOS ── */
+.article-photo {
+  width:100%; margin:48px 0;
+}
+.article-photo img {
+  width:100%; aspect-ratio:3/2; object-fit:cover;
+  border-radius:3px; display:block;
+}
+.article-photo-caption {
+  font-size:12px; color:var(--grey); font-style:italic;
+  margin-top:10px; text-align:center; letter-spacing:0.02em;
+}
+.article-photo-duo {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:16px; margin:48px 0;
+}
+.article-photo-duo img {
+  width:100%; aspect-ratio:3/2; object-fit:cover;
+  border-radius:3px; display:block;
+}
+
+/* ── SPLIT LAYOUT ── */
+.article-split {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:48px; align-items:center; margin:56px 0;
+}
+.article-split.reverse { direction:rtl; }
+.article-split.reverse > * { direction:ltr; }
+.article-split-text h3 {
+  font-family:var(--serif); font-size:22px; font-weight:400;
+  color:var(--dark); margin-bottom:12px; line-height:1.3;
+}
+.article-split-text h3 em { font-style:italic; color:var(--mid); }
+.article-split-text .split-label {
+  font-size:11px; font-weight:500; letter-spacing:0.16em;
+  text-transform:uppercase; color:var(--ocre); margin-bottom:10px;
+}
+.article-split-text p {
+  font-size:15px; line-height:1.8; color:var(--mid); margin-bottom:16px;
+}
+.article-split-img img {
+  width:100%; aspect-ratio:4/5; object-fit:cover;
+  border-radius:3px; display:block;
+}
+
+/* ── GRILLE INSPIRATIONS 2×2 ── */
+.article-inspi-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:24px; margin:48px 0;
+}
+.article-inspi-item img {
+  width:100%; aspect-ratio:4/3; object-fit:cover;
+  border-radius:3px; display:block; margin-bottom:12px;
+}
+.article-inspi-item .inspi-title {
+  font-family:var(--serif); font-size:14px; font-weight:700;
+  color:var(--dark); margin-bottom:6px;
+}
+.article-inspi-item .inspi-text {
+  font-size:13px; line-height:1.7; color:var(--mid);
+}
+
+/* ── CITATION ── */
+.article-quote {
+  border-left:3px solid var(--ocre);
+  padding:24px 32px; margin:56px 0;
+  background:var(--light);
+  border-radius:0 4px 4px 0;
+}
+.article-quote p {
+  font-family:var(--serif); font-style:italic;
+  font-size:20px; line-height:1.6; color:var(--dark);
+  margin:0;
+}
+
+/* ── ENCART ADRESSES ── */
+.article-adresses {
+  background:var(--light); border-radius:6px;
+  padding:40px 40px 32px; margin:64px 0;
+}
+.article-adresses .adresses-label {
+  font-size:11px; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ocre);
+  margin-bottom:20px;
+}
+.article-adresses h3 {
+  font-family:var(--serif); font-size:22px; font-weight:400;
+  color:var(--dark); margin-bottom:28px;
+}
+.article-adresses h4 {
+  font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--dark); margin:24px 0 10px;
+  border-bottom:1px solid #E8E2DC; padding-bottom:8px;
+}
+.article-adresses p {
+  font-size:15px; line-height:1.75; color:var(--mid); margin-bottom:10px;
+}
+.article-adresses strong { color:var(--dark); font-weight:600; }
+
+/* ── TAGS ARTICLE ── */
+.article-tags {
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin:56px 0 0; padding-top:40px;
+  border-top:1px solid #E8E2DC;
+}
+.article-tag {
+  font-size:11px; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--grey);
+  border:1px solid #E8E2DC; border-radius:2px;
+  padding:5px 12px; text-decoration:none;
+}
+.article-tag:hover { color:var(--dark); border-color:var(--dark); }
+
+/* ── NEWSLETTER ── */
+.newsletter-section {
+  background:#F5F3F0; padding:120px 5%; text-align:center;
+}
+.newsletter-section h2 {
+  font-family:var(--serif); font-size:32px; color:var(--dark);
+  margin-bottom:12px; font-weight:400;
+}
+.newsletter-section p {
+  font-size:16px; color:var(--mid); margin-bottom:28px;
+  font-family:var(--sans);
+}
+.newsletter-form {
+  max-width:500px; margin:0 auto; display:flex;
+  align-items:center; border-bottom:1px solid var(--dark);
+  padding-bottom:8px;
+}
+.newsletter-form input {
+  flex:1; background:transparent; border:none; outline:none;
+  font-size:16px; font-family:var(--sans); color:var(--dark);
+  padding:8px 0;
+}
+.newsletter-form input::placeholder { color:var(--grey); }
+.newsletter-form button {
+  background:none; border:none; color:var(--dark);
+  font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  cursor:pointer; padding-left:16px;
+}
+.newsletter-form button:hover { color:var(--ocre); }
+
+/* ── FOOTER ── */
+footer {
+  background:#B0705A; color:#fff; padding:60px 48px 30px;
+}
+.footer-top {
+  display:grid; grid-template-columns:1.5fr repeat(3,1fr); gap:50px;
+  margin-bottom:50px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.15);
+}
+.footer-logo {
+  font-family:var(--sans); font-weight:600; font-size:20px;
+  letter-spacing:0.18em; color:#fff; margin-bottom:10px;
+}
+.footer-logo span { color:var(--ocre); }
+.footer-tagline {
+  font-family:var(--serif); font-style:italic; font-size:15px;
+  color:rgba(255,255,255,0.6); margin-bottom:20px; line-height:1.5;
+}
+.footer-contact {
+  font-size:13px; color:rgba(255,255,255,0.65); line-height:1.8;
+}
+.footer-contact a { color:var(--sage); text-decoration:none; }
+.footer-col h4 {
+  font-size:11px; font-weight:500; letter-spacing:0.16em;
+  text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:18px;
+}
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:10px; }
+.footer-col ul li a {
+  color:rgba(255,255,255,0.8); text-decoration:none; font-size:14px;
+}
+.footer-col ul li a:hover { color:#fff; }
+.footer-bottom {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.footer-copy { font-size:12px; color:rgba(255,255,255,0.4); }
+.footer-langs {
+  display:flex; gap:16px; font-size:12px; color:rgba(255,255,255,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="index_10.html" class="nav-logo">Calli &amp; Sol</a>
+  <div class="nav-links">
+    <a href="index_10.html#a-la-une">Le Mag • À la une</a>
+    <a href="index_10.html#selection">Sélection</a>
+    <a href="index_10.html#ia-studio">Studio IA</a>
+    <a href="index_10.html#quiz">Quiz déco</a>
+    <a href="index_10.html#qui-suis-je">À propos</a>
+  </div>
+  <div class="nav-lang">
+    <button class="active">FR</button>
+    <button>NL</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="article-hero">
+  <img src="../images/verre/32.updown-court.jpg" alt="Updown Court — façade en briques de verre ondulées">
+  <div class="article-hero-overlay"></div>
+  <div class="article-hero-meta">
+    <span class="article-category">Matières Brutes</span>
+    <h1>Glass Block</h1>
+  </div>
+</div>
+
+<!-- ── CORPS DE L'ARTICLE ── -->
+<article class="article-body">
+
+  <p class="article-intro">
+    De la Maison de Verre de Pierre Chareau aux façades ondulées de Renzo Piano, la brique de verre n'a jamais cessé de fasciner. Translucide, lumineuse, sculpturale — elle est à la fois matière brute et outil poétique. Voici son histoire, ses chefs-d'œuvre, et les mille façons de l'inviter chez soi.
+  </p>
+
+  <!-- SECTION 1 -->
+  <h2>L'histoire commence dans les cales des bateaux</h2>
+  <p>
+    Tout commence au XVIIIe siècle : de grosses pièces de verre prismatiques permettaient à la lumière de filtrer jusqu'aux cales des navires. Rustique, opaque, certes. Mais l'idée était née : le verre pouvait traverser les murs.
+  </p>
+  <p>
+    En 1885, l'architecte suisse <strong>Gustave Falconnier</strong> révolutionne tout avec la première brique de verre creuse, soufflée à la bouche comme un flacon. De l'air stocké dans les murs. Une idée folle, poétique, visionnaire.
+  </p>
+  <p>
+    Puis viennent les années <strong>1920</strong>, <strong>Le Corbusier, Mallet-Stevens, Pierre Chareau</strong>. Le chef-d'œuvre absolu ? <strong>La Maison de Verre</strong>, rue Saint-Guillaume à Paris. Deux façades entièrement translucides, une lanterne magique qui brille le jour comme la nuit.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/1.maison-verre.jpg" alt="La Maison de Verre, Paris — Pierre Chareau">
+    <p class="article-photo-caption">La Maison de Verre, Paris, 1932 — Pierre Chareau &amp; Bernard Bijvoet</p>
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/2.maisonverre.jpg" alt="La Maison de Verre, façade intérieure — Paris">
+    <p class="article-photo-caption">Façade intérieure — La lumière traverse les murs de brique de verre</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <h2>MAISON HERMÈS, Tokyo, 2001. <em>Renzo Piano signe l'impossible</em></h2>
+  <p>
+    <strong>La Maison Hermès</strong> s'élève dans le quartier de Ginza comme une lanterne géante. <strong>13 000 briques de verre</strong> qui captent la lumière du jour et brillent la nuit comme une sculpture vivante. Un bâtiment qui respire, qui change, qui fascine.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/3-1.hermes.jpeg" alt="Maison Hermès Tokyo — détail façade briques de verre">
+    <img src="../images/verre/3-2.hermes.jpeg" alt="Maison Hermès Tokyo — vue de nuit, briques illuminées">
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/4.hermes.png" alt="Maison Hermès Tokyo — façade complète de nuit">
+    <p class="article-photo-caption">Maison Hermès, Ginza, Tokyo — Renzo Piano, 2001 · Photo : Zeph Colombatto</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <h2>Sèves Glassblock : <em>l'ingénierie au service du rêve</em></h2>
+  <p>
+    Si la Maison Hermès a pu voir le jour, c'est grâce au savoir-faire de <strong>Sèves Glassblock</strong>. Leader mondial incontesté, l'entreprise italienne a su transformer la brique de verre, autrefois perçue comme un simple matériau industriel, en un véritable outil de haute couture architecturale.
+  </p>
+  <p>
+    Pour Renzo Piano, ils ont repoussé toutes les limites en créant des briques sur-mesure de 45×45 cm, capables de répondre à des exigences antisismiques extrêmes tout en conservant une clarté absolue. Aujourd'hui, Sèves ne se contente plus de bâtir des icônes mondiales.
+  </p>
+
+  <!-- Split : Pilates Social Club -->
+  <div class="article-split">
+    <div class="article-split-text">
+      <div class="split-label">Sèves Glassblock · Lyon</div>
+      <h3>PILATES SOCIAL CLUB : <em>la douceur du rose poudré</em></h3>
+      <p>
+        Dans ce studio conçu par <strong>Clara Rochedy</strong>, à Lyon, la brique de verre Sèves délaisse son aspect industriel pour se parer d'un <strong>rose poudré</strong> d'une infinie délicatesse.
+      </p>
+      <p>
+        Comme le souligne Sèves, ces tonalités chaudes ne sont pas qu'un choix esthétique ; elles sont une invitation au <strong>calme et à la sérénité</strong>. En diffusant une lumière douce et tamisée, elles enveloppent l'espace d'une <strong>aura apaisante</strong>, idéale pour la pratique du Pilates.
+      </p>
+    </div>
+    <div class="article-split-img">
+      <img src="../images/verre/5.pilates-social-club.png" alt="Pilates Social Club Lyon — cloison en briques de verre rose poudré">
+    </div>
+  </div>
+
+  <!-- Split : Avobar -->
+  <div class="article-split reverse">
+    <div class="article-split-text">
+      <div class="split-label">Sèves Glassblock · Abu Dhabi</div>
+      <h3>AVOBAR, ABU DHABI : <em>quand la brique de verre rencontre le minimalisme le plus radical</em></h3>
+      <p>
+        Dans ce bar aux allures de sculpture, la brique <strong>Doric Q 19</strong> de Sèves Glassblock compose un mur d'une <strong>pureté absolue</strong>.
+      </p>
+      <p>
+        Face à elle — des tables en acier inoxydable, des chaises Panton en plastique blanc, des surfaces immaculées. Rien de trop. Tout est juste.
+      </p>
+    </div>
+    <div class="article-split-img">
+      <img src="../images/verre/6.seves-glassblock-avobar.png" alt="Avobar Abu Dhabi — mur en briques de verre Doric Q 19">
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <h2>FENN STORE : <em>une parenthèse de sérénité à Sydney</em></h2>
+  <p>
+    Direction Paddington, où le <strong>studio Akin Atelier</strong> a conçu pour <strong>Fenn Store</strong> un espace d'une grande pureté. Dans ce centre de soin, la brique de verre n'est plus un élément industriel, elle devient une source de sérénité.
+  </p>
+  <p>
+    Enveloppé dans des tons sable et rose poudré, le lieu mise sur la simplicité des formes. La paroi en briques de verre capte la lumière douce de l'après-midi, créant un jeu de textures subtil qui répond aux enduits muraux et au mobilier minimaliste. C'est un <strong>écrin apaisant</strong>, parfaitement pensé pour se déconnecter de l'agitation de Sydney.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/7.akinatelier-fenn-store.png" alt="Fenn Store Sydney — façade extérieure, studio Akin Atelier">
+    <img src="../images/verre/8.f.enn-store-mur-verre.jpg" alt="Fenn Store Sydney — paroi en briques de verre intérieure">
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/9.fenn.store.png" alt="Fenn Store Sydney — intérieur, lumière tamisée">
+    <p class="article-photo-caption">Fenn Store, Paddington, Sydney — Studio Akin Atelier</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <h2>Habiter la lumière : <em>le mur de verre comme colonne vertébrale</em></h2>
+  <p>
+    Quand la brique de verre prend de la hauteur, elle change radicalement la perception de l'espace. Elle ne se contente plus de décorer, elle devient la structure même de l'habitat.
+  </p>
+  <p>
+    Dans cette réalisation signée <strong>Vitroland</strong>, le mur immense traverse les niveaux. Du salon jusqu'aux couloirs, la <strong>brique de verre</strong> n'est plus un simple matériau de construction, mais <strong>la pièce maîtresse du projet</strong>.
+  </p>
+  <p>
+    Ici, le mur ne sert plus à fermer l'espace, il sert à bâtir avec la clarté. Tout gravite autour des reflets et de cette transparence qui prend vie au fil des heures. À Tel-Aviv, l'architecte <strong>Tal Goldsmith Fish</strong> pousse cette recherche de fluidité encore plus loin.
+  </p>
+  <p>
+    En utilisant les <strong>briques Pegasus de Sèves Glassblock</strong> (finitions métallisées et satinées), elle crée une paroi monumentale qui baigne la chambre et les pièces de vie d'une lumière diffuse et mystérieuse. Le verre devient un filtre poétique qui protège l'intimité tout en offrant un volume spectaculaire.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/10-2.vitroland.png" alt="Vitroland Tel Aviv — mur de briques de verre et escalier">
+    <p class="article-photo-caption">Vitroland · Tel-Aviv — Architect : Tal Goldsmith Fish · Sèves Glassblock Pegasus</p>
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/11.chambre-vitroland.png" alt="Chambre avec paroi en briques de verre — Vitroland">
+    <p class="article-photo-caption">Chambre baignée d'une lumière diffuse — briques Pegasus, finition métallisée</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <h2>L'art de séparer <em>sans cloisonner</em></h2>
+  <p>
+    Dans cet appartement, la brique de verre s'invite dans l'intimité d'un intérieur. Elle sert ici de paroi entre l'espace de vie (cuisine, salle à manger, salon) et la salle de bain.
+  </p>
+  <p>
+    Toute l'intelligence du projet réside dans le mélange de trois séries de briques différentes. Ce jeu de textures permet de moduler la transparence selon les besoins : préserver l'intimité là où c'est nécessaire, tout en laissant circuler la lumière et les perspectives ailleurs.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/12-1.appart.png" alt="Appartement — cloison brique de verre entre salon et salle de bain">
+    <img src="../images/verre/12-2.appart.png" alt="Appartement — mélange de trois séries de briques de verre">
+  </div>
+
+  <!-- SECTION 7 -->
+  <h2>Salles de bain, <em>cloisons en verre pour apporter la lumière</em></h2>
+  <p>
+    Sur ces deux exemples, on découvre le point de vue depuis l'intérieur de la salle de bain. On réalise à quel point la brique de verre change tout : la pièce n'est plus isolée dans le noir, elle récupère toute la clarté de la pièce de vie voisine. C'est la solution idéale pour transformer un espace aveugle en un lieu lumineux et apaisant.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/13-1-sdb.jpg" alt="Salle de bain — cloison en briques de verre, lumière naturelle">
+    <img src="../images/verre/13-2-sdb.jpg" alt="Salle de bain avec paroi vitrée — transparence et clarté">
+  </div>
+
+  <!-- SECTION 8 -->
+  <h2>Dialogue des matières : <em>zinc et mur de verre</em></h2>
+  <p>
+    Ici, la brique de verre sert de décor à une entrée spectaculaire. Tout le projet repose sur le contraste entre la douceur du mur de verre et l'aspect brut de l'escalier en zinc. Les gros rochers posés à même le sol apportent une touche naturelle qui complète cette installation. Le mélange du métal, du verre et de la pierre transforme cet espace en une véritable création artistique.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/14.hall-pierre-escalier.jpg" alt="Hall d'entrée — mur de verre, escalier en zinc, rochers">
+    <p class="article-photo-caption">Entrée spectaculaire — dialogue entre le verre, le zinc et la pierre</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <h2>PROJET MERCATOR : <em>l'équilibre bois et verre à Bruxelles</em></h2>
+  <p>
+    Le bureau d'architecture <strong>Hé</strong> signe ici une superbe intégration avec le projet <strong>Mercator</strong>. Dans cette maison bruxelloise, la brique de verre dialogue avec le bois et crée une atmosphère sereine. Que ce soit dans le salon ou pour délimiter la salle de bain, la chaleur du bois vient contrebalancer la minéralité du verre. Ce projet prouve que la brique de verre est un partenaire idéal pour les matériaux naturels, offrant un rendu à la fois doux et contemporain.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/15.mercator.jpg" alt="Projet Mercator Bruxelles — brique de verre et bois, bureau Hé">
+    <img src="../images/verre/16.mercator.jpg" alt="Projet Mercator — cloison en briques de verre, intérieur contemporain">
+  </div>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/17.mercator-sdb.jpg" alt="Projet Mercator — salle de bain avec paroi en briques de verre">
+    <img src="../images/verre/15.mercator.jpg" alt="Projet Mercator — vue d'ensemble avec plantes">
+  </div>
+
+  <!-- SECTION 10 -->
+  <h2>PALEXCO — La Corogne : <em>quand la nature s'invite en transparence</em></h2>
+  <p>
+    Dans le <strong>Centre de congrès PALEXCO</strong>, à <strong>La Corogne</strong>, en <strong>Espagne</strong>, la brique de verre <strong>Sèves</strong> devient un véritable filtre artistique. Ici, elle laisse entrevoir des plantes exotiques dont les silhouettes se dessinent avec douceur à travers la paroi.
+  </p>
+  <p>
+    Ce jeu de transparence et de flou transforme le mur en un véritable tableau végétal vivant. C'est la preuve que la brique de verre peut se faire poétique pour intégrer la nature au cœur même de l'architecture. La conception du bâtiment, signée par les architectes de renom <strong>César Portela</strong> et <strong>Ricardo Bofill</strong>, fait écho à l'héritage maritime de la ville tout en jouant sur la modernité.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/18.verre-palexco-plantes.png" alt="Centre de congrès Palexco, La Corogne — briques de verre et plantes exotiques">
+    <p class="article-photo-caption">Centre de congrès PALEXCO, La Corogne, Espagne — César Portela &amp; Ricardo Bofill · Sèves Glassblock</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <h2>DEIJI STUDIO : <em>une cabine d'essayage tout en douceur</em></h2>
+  <p>
+    À Byron Bay, le <strong>studio Pattern Studio</strong>, Cabinet d'architecture d'intérieur, a imaginé ces cabines d'essayage pour la boutique <strong>Deiji Studios</strong>. Ici, ce sont des demi-briques de verre au <strong>fini sablé</strong> sur les deux faces qui ont été choisies.
+  </p>
+  <p>
+    Ce traitement spécifique permet d'offrir une intimité totale aux clients tout en créant un halo lumineux très doux. Le résultat est un espace <strong>apaisant et feutré</strong>, où la brique de verre perd son côté industriel pour devenir un <strong>cocon de lumière</strong>.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/19.cabine-essayage.png" alt="Deiji Studios Byron Bay — cabines d'essayage en briques de verre sablées">
+    <p class="article-photo-caption">Deiji Studios, Byron Bay — Pattern Studio · Demi-briques fini sablé</p>
+  </div>
+
+  <!-- SECTION 12 -->
+  <h2>GEIJOENG CONCEPT STORE : <em>un jeu de reflets à Shenzhen</em></h2>
+  <p>
+    Le <strong>Studio 10</strong> signe ici une réalisation étonnante pour cette marque de mode féminine en Chine. L'espace repose sur une superposition magistrale de matériaux réfléchissants, translucides et minéraux.
+  </p>
+  <p>
+    La brique de verre y joue un rôle central, captant la lumière pour créer des perspectives changeantes au fil de la boutique. Un projet où la matière s'efface au profit de la clarté et de la transparence, magnifiquement mis en lumière par l'œil du photographe <strong>Chao Zhang</strong>.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/20.conceptstore-shenzen.png" alt="Geijoeng Concept Store Shenzhen — jeu de reflets, Studio 10">
+    <img src="../images/verre/21.conceptstore-shenzen.jpg" alt="Geijoeng Concept Store Shenzhen — briques de verre et matériaux réfléchissants">
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/22.conceptstore-shenzen.jpg" alt="Geijoeng Concept Store — détail sol terrazzo et paroi vitrée">
+    <p class="article-photo-caption">Geijoeng Concept Store, Shenzhen — Studio 10 · Photo : Chao Zhang</p>
+  </div>
+
+  <!-- SECTION 13 -->
+  <h2>Des couleurs pour <em>sculpter l'ambiance</em></h2>
+  <p>
+    La brique de verre ne se contente pas de laisser passer la lumière ; lorsqu'elle se colore, elle transforme radicalement l'atmosphère d'une pièce. Dans ces chambres, le choix du jaune crée une séparation lumineuse et apaisante entre la partie nuit et la salle de bain. Cette teinte solaire diffuse une chaleur constante, instaurant une <strong>ambiance enveloppante</strong>. C'est une solution idéale pour délimiter les zones d'eau tout en conservant cette sensation de cocon douillet.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/23.chambre-jaune.jpg" alt="Chambre — cloison en briques de verre jaune, ambiance chaleureuse">
+    <img src="../images/verre/24.chambre-jaune.jpg" alt="Chambre — mur de briques de verre couleur miel">
+  </div>
+
+  <!-- SECTION 14 -->
+  <h2>GUSTAVE FALCONNIER : <em>le génie de la brique soufflée</em></h2>
+  <p>
+    On ne peut parler de couleur sans évoquer l'héritage de l'architecte suisse <strong>Gustave Falconnier</strong>. Sa brique, véritable <strong>"manifestation du génie helvétique"</strong>, est une pièce soufflée et moulée, à la manière d'une bouteille, puis cachetée.
+  </p>
+  <p>
+    La <strong>véranda Yersin à Prangins</strong>, capturée par le photographe <strong>Régis Colombo</strong>, est un témoignage exceptionnel de ce savoir-faire. Ici, les briques déploient une palette de verts, de bleus et de jaunes, créant des ambiances lumineuses polychromes inédites. Ces facettes chatoyantes diffractent la lumière naturelle pour exalter l'architecture, faisant de la brique de verre bien plus qu'un simple matériau technique : <strong>une véritable signature artistique</strong>.
+  </p>
+
+  <blockquote class="article-quote">
+    <p>"La brique de verre soufflée de Falconnier, c'est le verre rendu vivant — chaque pièce unique, chaque lumière différente. Un génie oublié qui mérite d'être redécouvert."</p>
+  </blockquote>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/25.falconnier.png" alt="Véranda Yersin Prangins — briques de verre Falconnier, palette de verts et bleus">
+    <img src="../images/verre/26.falconnier.png" alt="Briques Falconnier — détail polychrome, verts et jaunes chatoyants">
+  </div>
+
+  <div class="article-photo">
+    <img src="../images/verre/27.falconnier.jpg" alt="Véranda Falconnier — vue d'ensemble, briques de verre colorées">
+    <p class="article-photo-caption">Véranda Yersin, Prangins — Briques Falconnier soufflées · Photo : Régis Colombo</p>
+  </div>
+
+  <!-- SECTION 15 -->
+  <h2>CASA BOTIJO : <em>une couture de verre rose à Madrid</em></h2>
+  <p>
+    À <strong>Madrid</strong>, l'agence <strong>ALE Estudio</strong> signe <strong>Casa Botijo</strong>, un immeuble de logements collectifs aussi durable qu'audacieux. La brique de verre rose s'y déploie en façade comme une grande couture translucide, apportant une signature visuelle forte au bâtiment.
+  </p>
+  <p>
+    À l'intérieur, cette paroi se prolonge pour baigner l'escalier d'une lumière douce et poudrée. Ce choix chromatique transforme un simple lieu de passage en un véritable refuge sensoriel.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/28. casa-botijo.png" alt="Casa Botijo Madrid — façade en briques de verre rose, ALE Estudio">
+    <img src="../images/verre/29. casa-botijo2.jpeg" alt="Casa Botijo Madrid — escalier intérieur baigné de lumière rose">
+  </div>
+
+  <!-- SECTION 16 -->
+  <h2>ARCHIMONTAGE : <em>contraste et transparence à Bangkok</em></h2>
+  <p>
+    Réalisé par le cabinet <strong>Archimontage Design Fields Sophisticated</strong>, ce bâtiment de 2020 se distingue par un jeu de volumes marqué. Si le bas de la structure affiche une blancheur éclatante, la partie supérieure s'habille d'un ton anthracite profond, créant une silhouette graphique très affirmée.
+  </p>
+  <p>
+    Au cœur de cette architecture, les briques de verre <strong>Sèves Glassblock</strong> assurent la transition entre <strong>l'argile, la pierre et la lumière</strong>. Photographiée par <strong>Rungkit Charoenwat</strong>, cette paroi translucide vient alléger la masse sombre du sommet tout en offrant une lumière intérieure subtile, participant ainsi aux quatre atmosphères uniques qui définissent ce projet.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/30.bangkok.png" alt="Archimontage Bangkok — briques de verre Sèves Glassblock, contraste blanc et anthracite">
+    <p class="article-photo-caption">Archimontage Design Fields Sophisticated, Bangkok, 2020 · Photo : Rungkit Charoenwat</p>
+  </div>
+
+  <!-- SECTION 17 -->
+  <h2>UPDOWN COURT : <em>une vague de verre sur l'horizon</em></h2>
+  <p>
+    L'architecture de <strong>Gong Shu Zhang</strong> prend ici une dimension organique. Le bâtiment ressemble à une <strong>immense vague de verre</strong> qui se détache avec force sur le bleu du ciel en arrière-plan.
+  </p>
+  <p>
+    Grâce au modèle <strong>CLEAR 1919/8 WAVY de Sèves Glassblock</strong>, la paroi semble s'animer, captant les reflets célestes pour transformer la structure en une sculpture lumineuse et dynamique. Ce projet de 2007 reste une référence majeure pour illustrer comment la brique de verre peut créer des formes audacieuses qui dialoguent directement avec les éléments naturels.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/31updown-court-taiwan.png" alt="Updown Court Taiwan — façade ondulée en briques de verre WAVY Sèves">
+    <img src="../images/verre/32.updown-court.jpg" alt="Updown Court — vue large, vague de verre sur fond de ciel">
+  </div>
+
+  <!-- SECTION 18 -->
+  <h2>SURRY HILLS : <em>entre héritage et lumière</em></h2>
+  <p>
+    Dans le quartier de <strong>Surry Hills</strong>, à <strong>Sydney</strong>, l'architecte <strong>Ian Moore</strong> a imaginé une réinterprétation audacieuse d'un ancien commerce de quartier. Si la façade conserve l'enveloppe historique du bâtiment, l'arrière de la maison s'ouvre sur une structure composée majoritairement de briques de verre.
+  </p>
+  <p>
+    L'utilisation du modèle <strong>JAVA de chez La Rochere</strong> transforme littéralement l'habitat : le bâtiment se gorge de clarté tout au long de la journée, tandis qu'à la nuit tombée, il se transforme en une <strong>lanterne chaleureuse</strong> diffusant une lumière douce vers l'extérieur. Un projet exemplaire où la brique de verre assure le lien entre le passé et une modernité résolument lumineuse.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/33-1.maison-sidney.png" alt="Surry Hills Sydney — façade arrière en briques de verre Java, Ian Moore">
+    <img src="../images/verre/33-2-sydney.png" alt="Surry Hills Sydney — détail briques de verre, lanterne nocturne">
+  </div>
+
+  <!-- SECTION 19 -->
+  <h2>NICETO VEGA 5924 : <em>l'élégance translucide à Buenos Aires</em></h2>
+  <p>
+    Au cœur du quartier vibrant de <strong>Palermo</strong>, les architectes <strong>Diego Cherbenco</strong> et <strong>Jonathan Tyszberowicz</strong> ont livré en 2013 un immeuble de logements qui joue avec les codes de la transparence. Sur six étages, ce projet de 1 300 m² abrite seize studios et appartements organisés au-dessus d'un rez-de-chaussée commercial.
+  </p>
+  <p>
+    L'utilisation de la brique de verre y est stratégique : elle permet de gérer la transition entre l'agitation urbaine et l'intimité des résidents. En façade, ces parois laissent pénétrer une lumière naturelle généreuse tout en protégeant les intérieurs des regards indiscrets. Sous l'objectif du photographe <strong>Albano García</strong>, l'immeuble s'impose comme une référence de modernité, où le matériau devient un outil de confort et de style.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/34.immeuble-buenosaires.jpg" alt="Niceto Vega 5924 Buenos Aires — immeuble en briques de verre, Palermo">
+    <p class="article-photo-caption">Niceto Vega 5924, Palermo, Buenos Aires — Cherbenco &amp; Tyszberowicz, 2013 · Photo : Albano García</p>
+  </div>
+
+  <!-- SECTION 20 -->
+  <h2>AURA : <em>une entrée magistrale à North Sydney</em></h2>
+  <p>
+    Dans le <strong>projet Aura</strong> réalisé par <strong>Aqualand</strong>, la brique de verre s'invite pour créer un hall d'accueil d'une élégance rare. L'utilisation des briques de verre pleines <strong>Obeco SGB231176</strong>, avec leurs angles arrondis et leurs finitions autoportantes, permet de dessiner des lignes fluides et sculpturales.
+  </p>
+  <p>
+    Le mariage entre la transparence du verre, la noblesse des sols en marbre et un éclairage chaleureux transforme cet espace en un écrin luxueux. Ici, la brique de verre n'est plus un matériau de construction, mais un véritable élément de décoration qui souligne le caractère prestigieux du bâtiment.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/35.aura.png" alt="Projet Aura North Sydney — hall d'accueil, briques de verre Obeco SGB231176">
+    <img src="../images/verre/36.aura.png" alt="Projet Aura — détail paroi en briques de verre, lignes sculpturales">
+  </div>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/37.aura.png" alt="Projet Aura — mur de briques de verre et mobilier de réception">
+    <img src="../images/verre/38.aura.png" alt="Projet Aura — hall de prestige, transparence et marbre">
+  </div>
+
+  <!-- SECTION 21 : Inspirations -->
+  <h2>La brique de verre sous toutes ses coutures : <em>inspirations Pinterest &amp; Google</em></h2>
+  <p>
+    La brique de verre s'impose comme l'atout charme pour structurer nos intérieurs sans jamais sacrifier la clarté. Voici quatre pépites visuelles qui réinventent ce matériau :
+  </p>
+
+  <div class="article-inspi-grid">
+    <div class="article-inspi-item">
+      <img src="../images/verre/39.cloison-chambre.jpg" alt="Coin nuit intimiste — mur de briques de verre dans la chambre">
+      <div class="inspi-title">Le coin nuit intimiste</div>
+      <div class="inspi-text">Un mur de briques de verre délimite l'espace sommeil avec douceur. Il offre une séparation réelle tout en laissant circuler la lumière, créant un cocon protecteur qui ne semble jamais exigu.</div>
+    </div>
+    <div class="article-inspi-item">
+      <img src="../images/verre/40.hall-entree.jpg" alt="L'entrée lumineuse — paroi de verre en hall d'entrée">
+      <div class="inspi-title">L'entrée lumineuse</div>
+      <div class="inspi-text">Rien de tel pour transformer une porte d'entrée qu'une paroi de verre attenante. L'entrée, souvent sombre, devient un puits de lumière naturelle, accueillante et chaleureuse dès le premier pas dans la maison.</div>
+    </div>
+    <div class="article-inspi-item">
+      <img src="../images/verre/41.mur-rose-verre.jpg" alt="Glamour en rose — briques de verre rose entre chambre et salon">
+      <div class="inspi-title">Glamour en rose</div>
+      <div class="inspi-text">Entre la chambre et le salon, la brique de verre se pare de rose pour une séparation à la fois douce et affirmée. Une touche de couleur qui transforme la cloison en œuvre décorative à part entière.</div>
+    </div>
+    <div class="article-inspi-item">
+      <img src="../images/verre/42.hall-separation-salon.jpg" alt="Couloir vitré — séparation en briques de verre entre couloir et salon">
+      <div class="inspi-title">L'originalité d'un couloir vitré</div>
+      <div class="inspi-text">Une séparation entre le couloir et le salon en briques de verre permet de briser la linéarité tout en préservant la fluidité des espaces. La lumière circule librement d'une pièce à l'autre.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 22 -->
+  <h2>POESIA GLASS : <em>la poésie du verre de Murano</em></h2>
+  <p>
+    Le voyage commence par la matière en fusion. On découvre ici un <strong>mini cube de verre bleu turquoise</strong>, tout juste coulé, dont le cœur rougeoit encore de la chaleur intense du four avant son passage en recuit. Ces échantillons sont les prémices de palettes de couleurs infinies pour les architectes du monde entier.
+  </p>
+  <p>
+    Le rendu final se dévoile avec ces trois briques de verre rectangulaires aux nuances de gemmes : <strong>Vert Péridot, Aquamarine et Bleu Saphir</strong>. Ces pièces d'exception, travaillées à la main dans l'atelier vénitien, incarnent l'union parfaite entre l'art verrier de Murano et l'architecture contemporaine.
+  </p>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/43.brique-bleue-poesiaglass.png" alt="Poesia Glass — mini cube de verre bleu turquoise fondu, Murano">
+    <img src="../images/verre/44.briques-trois-couleurs.png" alt="Poesia Glass — briques Vert Péridot, Aquamarine et Bleu Saphir">
+  </div>
+
+  <p>
+    Enfin, ce savoir-faire culmine à Venise, sur l'Île de San Giorgio Maggiore, avec l'œuvre monumentale <strong>Qwalala</strong> de l'artiste <strong>Pae White</strong>. Ce mur sinueux, véritable serpent de lumière, ondule comme une vague colorée. Composée de milliers de briques de verre pleines aux tons changeants, cette installation est une prouesse d'ingénierie qui transforme le matériau en une sculpture vivante, offrant une expérience sensorielle unique sous le soleil vénitien.
+  </p>
+
+  <div class="article-photo">
+    <img src="../images/verre/45.poesiaglass-venise.png" alt="Qwalala de Pae White — sculpture en briques de verre Poesia Glass, Venise">
+    <p class="article-photo-caption">Qwalala — Pae White · Île de San Giorgio Maggiore, Venise · Poesia Glass</p>
+  </div>
+
+  <div class="article-photo-duo">
+    <img src="../images/verre/46.poesiaglass-mur-venise.png" alt="Poesia Glass — mur de briques colorées, vue aérienne">
+    <img src="../images/verre/47.poesiaglass.png" alt="Poesia Glass — détail briques aux tons changeants">
+  </div>
+
+  <!-- SECTION 23 : Adresses -->
+  <div class="article-adresses">
+    <div class="adresses-label">Guide Calli &amp; Sol</div>
+    <h3>Où dénicher vos briques de verre ?</h3>
+    <p>Pour passer de l'inspiration à la réalisation, voici les meilleures adresses pour trouver le modèle adapté à votre projet, que vous soyez en Belgique ou ailleurs.</p>
+
+    <h4>1. Pour les projets immédiats et budgets maîtrisés</h4>
+    <p>Si vous cherchez une solution simple et accessible, les enseignes <strong>Brico</strong> et <strong>Brico Plan-it</strong> en Belgique proposent une gamme étonnante. Le choix : vous y trouverez des briques translucides classiques, mais aussi des modèles colorés (rose, turquoise, vert, jaune) et texturés. Le prix : comptez entre 10 € et 14 € l'unité, ce qui en fait une option très attractive pour de petites parois ou des touches décoratives.</p>
+
+    <h4>2. L'expertise belge et le sur-mesure</h4>
+    <p>Pour des besoins plus spécifiques ou techniques, tournez-vous vers des spécialistes reconnus :</p>
+    <p><strong>Verhaert &amp; Co</strong> : Une entreprise familiale belge de confiance, gérée par la quatrième génération, idéale pour un accompagnement de proximité.</p>
+    <p><strong>Verrelab</strong> : Un site incontournable pour sa précision technique. Ils proposent une gamme complète — briques de couleur, opaques, dépolies, mais aussi techniques (coupe-feu, isolantes ou acoustiques). Leurs panneaux pré-assemblés en atelier sont parfaits pour les façades extérieures et leurs kits de pose à sec facilitent la création de parois de douche ou de cloisons intérieures sans gros travaux.</p>
+
+    <h4>3. Pour le design de prestige et l'architecture</h4>
+    <p><strong>Sèves Glassblock</strong> : Le leader mondial pour ses briques ondulées (comme à Taiwan) ou ses finitions haut de gamme.</p>
+    <p><strong>Poesia Glass</strong> : Pour l'exceptionnel, avec leurs briques pleines artisanales en verre de Murano.</p>
+    <p><strong>La Rochere</strong> : Le savoir-faire traditionnel pour des modèles iconiques comme la brique Java.</p>
+  </div>
+
+  <!-- Tags -->
+  <div class="article-tags">
+    <a href="#" class="article-tag">Glass Block</a>
+    <a href="#" class="article-tag">Brique de verre</a>
+    <a href="#" class="article-tag">Matières brutes</a>
+    <a href="#" class="article-tag">Architecture</a>
+    <a href="#" class="article-tag">Sèves Glassblock</a>
+    <a href="#" class="article-tag">Lumière</a>
+    <a href="#" class="article-tag">Renzo Piano</a>
+    <a href="#" class="article-tag">Intérieur</a>
+  </div>
+
+</article>
+
+<!-- ── NEWSLETTER ── -->
+<section class="newsletter-section">
+  <h2>Rejoignez la communauté</h2>
+  <p>Calli &amp; Sol · Chaque quinzaine, inspirations, conseils et tendances directement dans votre boîte mail</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Bienvenue ! Merci de rejoindre Calli & Sol.'); this.reset();">
+    <input type="email" placeholder="Votre adresse email" required>
+    <button type="submit">S'inscrire</button>
+  </form>
+</section>
+
+<!-- ── FRISE ── -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 24" preserveAspectRatio="none" width="100%" height="24" style="display:block;background:#FFFFFF">
+  <defs>
+    <pattern id="frise-footer-pattern" x="0" y="0" width="34" height="24" patternUnits="userSpaceOnUse">
+      <polygon points="4,21 17,3 30,21" fill="#8FABA8"/>
+      <polygon points="38,21 51,3 64,21" fill="#D6EDEA"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="24" fill="url(#frise-footer-pattern)"/>
+</svg>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">CALLI <span>&</span> SOL</div>
+      <div class="footer-tagline">La maison du soleil · Sans règles, avec amour.</div>
+      <div class="footer-contact">
+        hello@calli-sol.be<br>
+        +32 474 97 65 22<br>
+        <a href="#">Instagram</a> · <a href="#">Pinterest</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>RUBRIQUES</h4><ul><li><a href="#">Meuble de la semaine</a></li><li><a href="#">Objet déco</a></li><li><a href="#">Luminaire</a></li><li><a href="#">Couleur</a></li><li><a href="#">Boutique</a></li></ul></div>
+    <div class="footer-col"><h4>SERVICES</h4><ul><li><a href="#">Découverte gratuite</a></li><li><a href="#">Coaching déco</a></li><li><a href="#">Carnet d'aménagement</a></li><li><a href="#">Mission complète</a></li></ul></div>
+    <div class="footer-col"><h4>À PROPOS</h4><ul><li><a href="#">Qui suis-je ?</a></li><li><a href="#">Ma vibe déco</a></li><li><a href="#">IA Studio</a></li><li><a href="#">Contact</a></li><li><a href="#">Mentions légales</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Ariane Fonteyne — Tous droits réservés</div>
+    <div class="footer-langs"><span>🇧🇪 BE</span><span>🇱🇺 LU</span><span>🇫🇷 FR</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
