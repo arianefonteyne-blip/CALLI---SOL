@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Art de Vivre Nomade — CALLI & SOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --dark: #1A1410;
+  --grey: #1a1a1a;
+  --light: #F8F4EE;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Playfair Display', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: #fff;
+  color: var(--dark);
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  border-bottom: 1px solid #e0d5c7;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  height: 60px;
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:not(.nav-logo) {
+  margin-left: 48px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+nav a:not(.nav-logo):hover { opacity: 1; }
+
+/* ARTICLE */
+.article-wrapper {
+  padding-top: 80px;
+}
+
+.article-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.article-title {
+  font-family: var(--display);
+  font-size: clamp(42px, 6vw, 64px);
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 24px;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.article-subtitle {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 60px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.article-body p {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.article-body p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 400;
+  float: left;
+  line-height: 0.8;
+  padding-right: 8px;
+  padding-top: 6px;
+  color: var(--ocre);
+}
+
+/* HIGHLIGHT */
+.highlight-phrase {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-style: italic;
+  color: var(--ocre);
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid #e0d5c7;
+  border-bottom: 1px solid #e0d5c7;
+  line-height: 1.6;
+}
+
+.accent-text {
+  font-weight: 500;
+  color: var(--dark);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+
+  .article-body { padding: 60px 20px; }
+  .article-title { font-size: 32px; }
+  .highlight-phrase { font-size: 20px; padding: 30px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">CALLI & SOL</a>
+</nav>
+
+<!-- ARTICLE -->
+<div class="article-wrapper">
+  <div class="article-body">
+
+    <h1 class="article-title">L'ART DE VIVRE NOMADE</h1>
+
+    <p class="article-subtitle">Parce que les plus beaux intérieurs sont ceux qui ont une âme.</p>
+
+    <p>Des objets chinés aux quatre coins du monde. Des matières naturelles, de la pierre, du lin froissé, de la terre cuite, du bois patiné ou brut, de la peinture à la chaux, de la laine tissée.</p>
+
+    <p>Des vases en céramique, des paniers tressés, des sculptures, des kilims, des coussins rapportés de voyage, une tapisserie en laine, des bougeoirs en bois brûlé, des zelliges, des branches sèchées, des cristaux décoratifs, quelques belles plantes dans des pots en terre.</p>
+
+    <div class="highlight-phrase">
+      Le style nomade organique,<br>
+      <span class="accent-text">c'est tout ça !</span>
+    </div>
+
+    <p>Mélangez les matières, les époques et les influences, sans chercher à tout assortir !</p>
+
+    <p>Utilisez une palette douce, autour du beige, du sable, de l'écru, du camel et des tons terre.</p>
+
+  </div>
+</div>
+
+</body>
+</html>
