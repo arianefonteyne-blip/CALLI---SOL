@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Nomade Organique — CALLI & SOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display+SC:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --dark: #1A1410;
+  --grey: #1a1a1a;
+  --light: #F8F4EE;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Jost', sans-serif;
+  --sage: #8BBFB5;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:18px; line-height:1.8; }
+
+/* NAV */
+nav {
+  position:absolute; top:0; left:0; right:0; z-index:100;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%);
+  display:flex; align-items:center;
+  padding:0 48px; height:72px;
+}
+.nav-logo-dot {
+  width:24px; height:24px; background:var(--ocre);
+  border-radius:50%; margin-right:14px; flex-shrink:0;
+}
+.nav-logo {
+  font-family:var(--display); font-weight:400;
+  font-size:17px; letter-spacing:0.22em;
+  color:#fff; text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  margin-right:auto; display:flex; align-items:center;
+}
+.nav-links {
+  display:flex; align-items:stretch; flex:1; justify-content:center;
+  overflow:visible;
+}
+.nav-links a {
+  display:flex; align-items:center;
+  padding:0 18px; height:72px;
+  font-size:13px; font-weight:400; letter-spacing:0.04em;
+  text-decoration:none; color:#fff; white-space:nowrap;
+  border-bottom:2px solid transparent; transition:border-color 0.2s;
+}
+.nav-links a:hover { border-bottom-color:var(--ocre); }
+.nav-subscribe {
+  margin-left:auto;
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:#fff; text-decoration:none;
+  border:1px solid rgba(255,255,255,0.6);
+  padding:8px 20px; border-radius:20px;
+  transition:all 0.25s ease; white-space:nowrap;
+}
+.nav-subscribe:hover { background:rgba(255,255,255,0.15); border-color:#fff; }
+
+/* HERO ARTICLE */
+.article-hero {
+  width:100%; height:75vh; min-height:500px;
+  background-size:cover; background-position:center;
+  position:relative;
+  display:flex; flex-direction:column;
+  align-items:flex-start; justify-content:flex-end;
+  padding:60px 5%;
+}
+.article-hero::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events:none;
+}
+.article-hero-content { position:relative; z-index:1; max-width:700px; }
+.article-hero-tag {
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:rgba(255,255,255,0.8); margin-bottom:16px;
+}
+.article-hero-title {
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:clamp(36px, 5vw, 64px); font-weight:400;
+  color:#fff; line-height:1.1; margin-bottom:16px;
+}
+.article-hero-title em { font-style:italic; color:rgba(255,255,255,0.8); }
+.article-hero-meta {
+  font-family:var(--sans); font-size:13px; color:rgba(255,255,255,0.65);
+  letter-spacing:0.04em;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  max-width:780px; margin:0 auto;
+  padding:80px 24px 100px;
+}
+.article-body h2 {
+  font-family:var(--serif); font-size:26px; font-weight:400;
+  color:var(--dark); margin:60px 0 24px; line-height:1.3;
+}
+.article-body h2 em { font-style:italic; color:var(--sage); font-weight:400; }
+.article-body h2 em.small-subtitle { font-size:0.85em; }
+.article-body h3 {
+  font-family:var(--serif); font-size:20px; font-weight:400;
+  color:var(--dark); margin:40px 0 16px; line-height:1.3;
+}
+.article-body h3 em { font-style:italic; color:#1a1a1a; }
+.article-body p {
+  font-size:16px; color:#1a1a1a; line-height:1.9;
+  margin-bottom:24px;
+}
+.article-body ul {
+  margin:0 0 24px 20px; color:#1a1a1a; font-size:16px; line-height:1.9;
+}
+.article-body li { margin-bottom:12px; }
+.article-body strong { color:var(--dark); }
+.price { font-size: 14px; }
+
+/* IMAGES */
+.article-img {
+  width:100%; border-radius:4px; margin:32px 0;
+  display:block;
+}
+.article-img-full {
+  width:100vw; margin-left:calc(-50vw + 50%);
+  border-radius:0; margin-top:48px; margin-bottom:48px;
+}
+.article-img-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  margin:32px -60px;
+}
+.article-img-grid-3 {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;
+  margin:32px 0;
+}
+.article-img-grid img, .article-img-grid-3 img {
+  width:100%; border-radius:4px; object-fit:contain; height:auto;
+}
+.article-caption {
+  font-family:var(--sans); font-size:12px; color:#1a1a1a;
+  text-align:center; margin-top:-20px; margin-bottom:32px;
+  letter-spacing:0.06em;
+}
+
+/* DIVIDER */
+.article-divider {
+  width:100%; height:1px; background:#8BBFB5;
+  margin:70px 0 100px 0;
+}
+
+/* GALLERY GRID */
+.article-gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 40px 30px !important;
+  width: 120% !important;
+  max-width: 1400px !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 50px 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.gallery-item {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.gallery-item img,
+.article-gallery-grid img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+.gallery-caption,
+.gallery-item p,
+.article-gallery-grid p {
+  font-family: var(--sans) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  color: #1a1a1a !important;
+  text-align: left !important;
+  line-height: 1.6 !important;
+}
+
+/* BACK LINK */
+.article-back {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-size:13px; font-weight:500;
+  letter-spacing:0.08em; color:#1a1a1a; text-decoration:none;
+  margin-top:48px; transition:color 0.2s;
+}
+.article-back:hover { color:var(--ocre); }
+
+@media(max-width:768px) {
+  .article-body { padding:40px 20px; }
+  .article-gallery-grid { width:100% !important; left:0 !important; transform:none !important; margin:30px 0 !important; }
+  .article-img-grid { margin:32px 0; }
+}
+
+.chapeau {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-style: italic;
+  color: #1A1410;
+  border-left: 3px solid #D4920A;
+  padding-left: 20px;
+  margin: 32px 0;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><span class="nav-logo-dot"></span>CALLI &amp; SOL</a>
+  <div class="nav-links">
+    <a href="index.html#a-la-une">Le Blog</a>
+    <a href="index.html#le-studio">Le Studio</a>
+    <a href="index.html#qui-suis-je">À propos</a>
+  </div>
+  <a href="index.html#newsletter-section" class="nav-subscribe">Je m'abonne</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero" style="background-image: url('images/article-nomade-organique/photo-hero-salon.png');">
+  <div class="article-hero-content">
+    <span class="article-hero-tag">Nomade · Lifestyle</span>
+    <h1 class="article-hero-title">Style Nomade <em>Organique</em></h1>
+    <div class="article-hero-meta">Ariane Fonteyne · 10 septembre 2026 · 8 min de lecture</div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<main class="article-body">
+
+  <p style="text-align:center;font-size:32px;color:var(--dark);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;font-family:var(--serif);font-weight:400;">L'ART DE VIVRE <em style="font-style:italic;color:#D4956A;">NOMADE</em></p>
+
+  <p style="text-align:center;font-size:19px;color:var(--grey);margin-bottom:40px;font-style:italic;font-family:var(--serif);">Parce que les plus beaux intérieurs sont ceux qui ont une âme.</p>
+
+  <p style="text-align: center;">Des objets chinés aux quatre coins du monde. Des matières naturelles, de la pierre, du lin froissé, de la terre cuite, du bois patiné ou brut, de la peinture à la chaux, de la laine tissée.</p>
+
+  <p style="text-align: center;">Des vases en céramique, des paniers tressés, des sculptures, des kilims, des coussins rapportés de voyage, une tapisserie en laine, des bougeoirs en bois brûlé, des zelliges, des branches sèchées, des cristaux décoratifs, quelques belles plantes dans des pots en terre.</p>
+
+  <p style="text-align: center;">Le style nomade organique, c'est tout ça !</p>
+
+  <p style="text-align: center;">Mélangez les matières, les époques et les influences, sans chercher à tout assortir !</p>
+
+  <p style="text-align: center;">Utilisez une palette douce, autour du beige, du sable, de l'écru, du camel et des tons terre.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 20px 0px; margin: 30px 0 50px 0; width: 100vw; margin-left: calc(-50vw + 50%); padding: 0 18%;">
+    <img src="images/article-nomade-organique/salon-nomade-blanc.png" alt="Salon nomade blanc" style="width: 100%; border-radius: 4px; object-fit: contain; aspect-ratio: 1/1; max-height: 700px; margin: 0; padding: 0; display: block;">
+    <div style="position: relative; margin: 0; padding: 0;">
+      <img src="images/article-nomade-organique/birgit-sfat.jpg" alt="Birgit Sfat" style="width: 100%; border-radius: 4px; object-fit: contain; aspect-ratio: 1/1; max-height: 850px; margin: 0; padding: 0; display: block;">
+      <p style="position: absolute; bottom: 20px; right: 295px; font-size: 13px; color: white; margin: 0; font-weight: 500; z-index: 10; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">© Birgit Sfat</p>
+    </div>
+  </div>
+
+  <p style="text-align: center;">Ou donnez-lui plus de pep's avec des touches de couleurs vives : des coussins mexicains, un mur terracotta, du jaune safran, une céramique turquoise.</p>
+
+  <img src="images/article-nomade-organique/chambre-nomade-coloree.jpg" alt="Chambre nomade colorée" style="width: 100%; border-radius: 4px; object-fit: contain; aspect-ratio: 1/1; max-height: 600px; margin: 15px 0 35px 0;">
+
+  <p style="text-align: center;">Et puis il y a les formes : des arches, des niches, des murs texturés, du mobilier aux lignes rondes et organiques.</p>
+
+  <img src="images/article-nomade-organique/salon-mur-niche-chaux-canape-togo1.webp" alt="Salon mur niche chaux" style="width: 100%; border-radius: 4px; object-fit: contain; aspect-ratio: auto; max-height: 500px; margin: 0px 0 50px 0;">
+
+  <div class="article-divider" style="background-color: #1a1a1a;"></div>
+
+  <p style="text-align:center;font-size:28px;color:var(--dark);margin-bottom:30px;text-transform:uppercase;letter-spacing:0.08em;font-family:var(--serif);font-weight:400;margin-top:20px;">FONTENILLE <em style="font-style:italic;color:#D4956A;">MENORCA</em></p>
+
+  <p style="text-align: center; margin: 0 0 50px 0;">Explorons ce style nomade organique en visitant un sublime hôtel à Minorque qui est un ancien palais entouré de jardins luxuriants. À Alaior, entre Mahón et les plus belles criques du sud de Minorque, Santa Ponsa, finca majestueuse du XVIIe siècle se dévoile au cœur d'une oasis méditerranéenne.</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; align-items: start;">
+    <div>
+      <p style="text-align: left; margin: 0;">Cet hôtel de charme iconique à Minorque est l'une des deux adresses de Fontenille Menorca, aux côtés de la finca bohème Torre Vella, tournée vers les falaises et la mer.</p>
+      <p style="text-align: left; margin: 25px 0 0 0;">Ensemble, ils incarnent une nouvelle vision de l'hospitalité : agritourisme engagé, respect du territoire, luxe discret et expériences singulières pensées pour se reconnecter à l'essentiel.</p>
+    </div>
+    <img src="images/article-nomade-organique/fontenille-façade.jpg" alt="Fontenille façade" style="width: 100%; border-radius: 4px; object-fit: cover; height: auto;">
+  </div>
+
+  <p class="chapeau">L'essence de Fontenille Menorca réside dans l'harmonie de matières brutes et authentiques.</p>
+
+  <p style="text-align: center; margin: 50px 0;">Pierre calcaire blanchie par le soleil, peinture à la chaux de blanc immaculé, bois patiné par le temps. Luminaires en fibres naturelles, pots en terre cuite, textiles en lin. Chaque détail respire l'authenticité et la sérénité d'une Minorque intemporelle.</p>
+
+  <img src="images/article-nomade-organique/moodboard-fontenille-menorca.jpg" alt="Moodboard Fontenille Menorca" style="width: calc(100% + 350px); margin-left: -175px; margin-right: -175px; border-radius: 4px; object-fit: cover; margin-bottom: 50px; margin-top: -30px; height: auto;">
+
+  <h2>Tendance 1 : Le <em>Minimalisme Naturel</em></h2>
+
+  <p>Cette première approche privilégie la sobriété, l'épuration et l'harmonie des teintes neutres. Elle crée des espaces où règne une quiétude absolue, où chaque objet respire l'authenticité sans surcharge.</p>
+
+  <h3><em>Les caractéristiques principales</em></h3>
+  <p>Le minimalisme naturel repose sur une palette de couleurs douces et apaisantes : blanc cassé, beige, gris clair, ivoire. Les matières restent brutes et authentiques — rotin, lin, bois non traité, céramique naturelle. Les formes sont épurées, les lignes simples, et l'espace respire.</p>
+
+  <p>Chaque pièce est soigneusement sélectionnée pour son histoire et son authenticité. Pas de clutter, pas de superflu. Seuls les objets qui ont du sens trouvent leur place. Les textiles sont neutres avec peut-être une ou deux teintes pastel très discrètes (gris clair, beige chaud). Les plantes vertes apportent la seule note de couleur vivante.</p>
+
+  <h3><em>Créer votre univers épuré</em></h3>
+  <ul>
+    <li><strong>Meubles :</strong> Canapé en lin naturel, table basse en teck clair, chaises en rotin, rangements en bois brut</li>
+    <li><strong>Textiles :</strong> Tapis en jute ou fibres naturelles, coussins en lin beige, plaids en coton écru</li>
+    <li><strong>Objets :</strong> Poteries en céramique brute, miroir en bois flotté, paniers en osier, quelques photos encadrées en noir et blanc</li>
+    <li><strong>Lumière :</strong> Naturelle principalement, complétée par des luminaires discrets en bois ou rotin</li>
+  </ul>
+
+  <p style="font-style:italic;color:var(--sage);">« Cette tendance incarne le silence élégant. Elle parle de minimalisme respectueux, où moins c'est vraiment plus. »</p>
+
+  <div class="article-divider"></div>
+
+  <h2>Tendance 2 : L'<em>Organique Coloré et Lumineux</em></h2>
+
+  <p>La seconde tendance du style nomade organique célèbre la couleur, le contraste et la vie. Elle mêle toujours les matières naturelles et l'authenticité, mais accepte — voire encourage — des touches de lumière et de vibration chromatique.</p>
+
+  <h3><em>Les caractéristiques principales</em></h3>
+  <p>Cette approche joue avec une palette plus riche : terracotta, ocre chaud, rose poudré, bleu ciel, vert amande, jaune pâle. Les matières restent organiques, mais les couleurs apportent dynamisme et énergie. Les objets colorés — poteries peintes, textiles teints naturellement, œuvres d'art — deviennent des points focaux qui illuminent l'espace.</p>
+
+  <p>Le style organique coloré refuse l'uniformité. Il célèbre les contrastes : une paroi ocre avec des objets bleus, des coussins terracotta sur un canapé écru, une tapis aux motifs géométriques doux. Les plantes luxuriantes, les fleurs séchées, les objets trouvés lors de voyages apportent une vie authentique à chaque recoin.</p>
+
+  <h3><em>Créer votre univers vibrant</em></h3>
+  <ul>
+    <li><strong>Meubles :</strong> Canapé en lin avec accents de couleur, table basse en bois avec détails peints, chaises en rotin avec coussins colorés</li>
+    <li><strong>Textiles :</strong> Tapis avec motifs doux, coussins en terracotta et bleu poudré, plaids en couleurs chaudes, rideaux en lin teinté</li>
+    <li><strong>Objets :</strong> Poteries marocaines colorées, miroir en rotin peint, paniers en fibres avec détails, art mural aux tons chauds</li>
+    <li><strong>Lumière :</strong> Naturelle abondante, complétée par des luminaires qui jouent avec les teintes — verre coloré, bois peint</li>
+  </ul>
+
+  <p style="font-style:italic;color:var(--sage);">« Cette tendance rayonne d'énergie douce. Elle dit que l'organique peut briller, que l'authentique peut être coloré, et que la beauté vit dans le mélange harmonieux. »</p>
+
+  <div class="article-divider"></div>
+
+  <h2>Choisir votre <em>propre chemin</em></h2>
+
+  <p>Ces deux tendances ne sont pas des catégories hermétiques. Vous pouvez danser entre elles, créer votre propre équilibre. Certains jours, vous aurez envie de la sérénité minimaliste. D'autres jours, de la vibration colorée. Le style nomade organique, c'est justement cette liberté d'interpréter l'authenticité à votre image.</p>
+
+  <p>L'important est que chaque pièce, chaque couleur, chaque texture parle de vous et de vos voyages. Que votre intérieur respire l'authenticité, quelle que soit la tendance que vous choisissez.</p>
+
+  <div class="article-divider"></div>
+
+  <h2 style="color:#1A1410;">Où trouver ces <em>pièces</em></h2>
+
+  <p>Les plateformes de shopping éthique fleurissent : Etsy pour les objets artisanaux, <a href="#" style="color:#1a1a1a; text-decoration:underline;">Maisons du Monde</a> pour le mobilier nomade, <a href="#" style="color:#1a1a1a; text-decoration:underline;">Anthropologie</a> pour les textiles. Les marchés locaux, les brocantes et les antiquaires restent vos meilleurs alliés pour trouver l'authenticité brute.</p>
+
+  <p>Le style nomade organique se cultive progressivement. Chaque pièce doit avoir du sens, une histoire. C'est un voyage intérieur autant qu'extérieur — bienvenue dans votre propre univers.</p>
+
+  <p style="font-style:italic; margin-top:60px;">Crédit photo : Sélection d'inspiration pour créer votre univers nomade organique.</p>
+
+  <a href="index.html" class="article-back">← Retour au blog</a>
+
+</main>
+
+</body>
+</html>
