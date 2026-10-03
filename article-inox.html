@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Inox Absolu — CALLI & SOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display+SC:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --dark: #1A1410;
+  --grey: #9A8A80;
+  --light: #F8F4EE;
+  --serif: 'Libre Baskerville', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+  --display: 'Jost', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:#fff; color:var(--dark); font-size:18px; line-height:1.8; }
+
+/* NAV */
+nav {
+  position:absolute; top:0; left:0; right:0; z-index:100;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%);
+  display:flex; align-items:center;
+  padding:0 48px; height:72px;
+}
+.nav-logo-dot {
+  width:18px; height:18px; background:var(--ocre);
+  border-radius:50%; margin-right:14px; flex-shrink:0;
+}
+.nav-logo {
+  font-family:var(--display); font-weight:400;
+  font-size:15px; letter-spacing:0.22em;
+  color:#fff; text-transform:uppercase;
+  text-decoration:none; white-space:nowrap;
+  margin-right:48px; display:flex; align-items:center;
+}
+.nav-links {
+  display:flex; align-items:stretch; flex:1; justify-content:center;
+  overflow:visible;
+}
+.nav-links a {
+  display:flex; align-items:center;
+  padding:0 18px; height:72px;
+  font-size:13px; font-weight:400; letter-spacing:0.04em;
+  text-decoration:none; color:#fff; white-space:nowrap;
+  border-bottom:2px solid transparent; transition:border-color 0.2s;
+}
+.nav-links a:hover { border-bottom-color:var(--ocre); }
+.nav-subscribe {
+  margin-left:auto;
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:#fff; text-decoration:none;
+  border:1px solid rgba(255,255,255,0.6);
+  padding:8px 20px; border-radius:20px;
+  transition:all 0.25s ease; white-space:nowrap;
+}
+.nav-subscribe:hover { background:rgba(255,255,255,0.15); border-color:#fff; }
+
+/* HERO ARTICLE */
+.article-hero {
+  width:100%; height:75vh; min-height:500px;
+  background-size:cover; background-position:center;
+  position:relative;
+  display:flex; flex-direction:column;
+  align-items:flex-start; justify-content:flex-end;
+  padding:60px 5%;
+}
+.article-hero::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.2) 100%);
+  pointer-events:none;
+}
+.article-hero-content { position:relative; z-index:1; max-width:700px; }
+.article-hero-tag {
+  font-family:var(--sans); font-size:11px; font-weight:500;
+  letter-spacing:0.18em; text-transform:uppercase;
+  color:rgba(255,255,255,0.8); margin-bottom:16px;
+}
+.article-hero-title {
+  font-family:'Playfair Display', Georgia, serif;
+  font-size:clamp(36px, 5vw, 64px); font-weight:400;
+  color:#fff; line-height:1.1; margin-bottom:16px;
+}
+.article-hero-title em { font-style:italic; color:rgba(255,255,255,0.8); }
+.article-hero-meta {
+  font-family:var(--sans); font-size:13px; color:rgba(255,255,255,0.65);
+  letter-spacing:0.04em;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  max-width:780px; margin:0 auto;
+  padding:80px 24px 100px;
+}
+.article-body h2 {
+  font-family:var(--serif); font-size:26px; font-weight:400;
+  color:var(--dark); margin:60px 0 24px; line-height:1.3;
+}
+.article-body h2 em { font-style:italic; color:#7BA3B8; font-weight:400; }
+.article-body h2 em.small-subtitle { font-size:0.85em; }
+.article-body h3 {
+  font-family:var(--serif); font-size:20px; font-weight:400;
+  color:var(--dark); margin:40px 0 16px; line-height:1.3;
+}
+.article-body h3 em { font-style:italic; color:#6B6B6B; }
+.article-body p {
+  font-size:16px; color:#1a1a1a; line-height:1.9;
+  margin-bottom:24px;
+}
+.article-body ul {
+  margin:0 0 24px 20px; color:#4A4A4A; font-size:16px; line-height:1.9;
+}
+.article-body li { margin-bottom:12px; }
+.article-body strong { color:var(--dark); }
+.price { font-size: 14px; }
+
+/* IMAGES */
+.article-img {
+  width:100%; border-radius:4px; margin:32px 0;
+  display:block;
+}
+.article-img-full {
+  width:100vw; margin-left:calc(-50vw + 50%);
+  border-radius:0; margin-top:48px; margin-bottom:48px;
+}
+.article-img-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  margin:32px -60px;
+}
+.article-img-grid-3 {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;
+  margin:32px 0;
+}
+.article-img-grid img, .article-img-grid-3 img {
+  width:100%; border-radius:4px; object-fit:contain; height:auto;
+}
+.article-caption {
+  font-family:var(--sans); font-size:12px; color:#6B6B6B;
+  text-align:center; margin-top:-20px; margin-bottom:32px;
+  letter-spacing:0.06em;
+}
+
+/* GALLERY GRID - HARMONIZED LAYOUT */
+/* GALLERY GRID - DÉBORDEMENT CONTRÔLÉ POUR AGRANDIR UNIQUEMENT LES IMAGES */
+.article-gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 40px 30px !important;
+
+  /* Augmente la taille des images en réduisant leurs marges sur les côtés */
+  width: 120% !important;
+  max-width: 1400px !important;
+
+  /* Centre la galerie élargie sans décaler le reste du site */
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  margin: 50px 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.gallery-item {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+/* Force l'écart entre l'image et le texte de la légende */
+.gallery-item img,
+.article-gallery-grid img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+.gallery-item:nth-child(3) img,
+.article-gallery-grid div:nth-child(3) img,
+img[alt*="parcelle"] {
+  object-fit: contain !important;
+  background-color: #ffffff !important;
+}
+
+/* Aligne parfaitement le style de la police sur la Sélection Coups de Cœur */
+.gallery-caption,
+.gallery-item p,
+.article-gallery-grid p {
+  font-family: sans-serif !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px !important;
+  color: #333333 !important;
+  text-align: left !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* PULLQUOTE */
+.article-pullquote {
+  border-left:3px solid #7BA3B8;
+  padding:8px 0 8px 28px; margin:40px 0 10px 0;
+}
+.article-pullquote p {
+  font-family:var(--serif); font-size:18px; font-style:italic;
+  color:var(--dark); line-height:1.7; margin-bottom:0;
+}
+
+/* DIVIDER */
+.article-divider {
+  border:none; height:1px;
+  background:#7BA3B8;
+  margin:70px 0 100px 0;
+}
+
+/* CONCLUSION */
+.article-conclusion {
+  background:#F9F4EB; border-radius:4px;
+  padding:36px 40px; margin:48px 0;
+}
+.article-conclusion p {
+  font-family:var(--serif); font-size:18px; font-style:italic;
+  color:var(--dark); line-height:1.7; margin-bottom:0;
+}
+
+/* BACK LINK */
+.article-back {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-size:13px; font-weight:500;
+  letter-spacing:0.08em; color:#1a1a1a; text-decoration:none;
+  margin-top:48px; transition:color 0.2s;
+}
+.article-back:hover { color:var(--ocre); }
+
+/* FOOTER */
+footer {
+  background-color:#547E85; color:#fff; padding:60px 48px 30px;
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap;
+}
+.footer-col { flex:1; min-width:180px; }
+.footer-col h4 {
+  font-family:var(--sans); font-size:11px; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  margin-bottom:16px; color:rgba(255,255,255,0.6);
+}
+.footer-col a {
+  display:block; font-size:14px; color:rgba(255,255,255,0.8);
+  text-decoration:none; margin-bottom:8px; transition:color 0.2s;
+}
+.footer-col a:hover { color:#fff; }
+.footer-bottom {
+  text-align:center; margin-top:40px; padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.15);
+  font-size:12px; color:rgba(255,255,255,0.4);
+}
+
+/* SÉLECTION INTEMPORELLE */
+.selection-intemporelle-container {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 25px !important;
+  align-items: end !important;
+
+  width: 100% !important;
+  max-width: 1160px !important;
+  margin: 30px auto !important;
+  padding: 0 5px !important;
+  box-sizing: border-box !important;
+}
+
+.selection-intemporelle-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* Force l'écart sous absolument toutes les images de produit */
+.selection-intemporelle-item img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin-bottom: 15px !important;
+  max-height: 280px !important;
+}
+
+/* Harmonise la police de Vase Vine et des autres sur celle de LUENA */
+.selection-intemporelle-item p {
+  font-family: sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px !important;
+  color: #333333 !important;
+  text-transform: uppercase !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  text-align: center !important;
+}
+
+.item-couverts img,
+.item-orevo img {
+  max-height: 160px !important;
+}
+
+/* MOODBOARD */
+/* Force l'élargissement de la grille des Coups de Cœur */
+.moodboard-container {
+  width: 95% !important;
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr !important;
+  grid-template-rows: auto auto auto !important;
+  gap: 50px 40px !important;
+  padding: 0 !important;
+  align-items: start !important;
+  justify-items: center !important;
+}
+
+.moodboard-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.item-seau {
+  grid-column: 4 !important;
+  grid-row: 2 / span 2 !important;
+  align-self: start !important;
+}
+
+.moodboard-item img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin-bottom: 30px !important;
+}
+
+.item-seau img {
+  max-height: 500px !important;
+  transform: scale(1.4) !important;
+  transform-origin: center center !important;
+}
+
+.item-saliere {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+}
+
+.item-saliere img {
+  width: 100% !important;
+  max-width: 160px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-tablette-bois {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+
+.item-tablette-bois img {
+  width: 100% !important;
+  max-width: 280px !important;
+  min-width: 220px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-tablette-travertin {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+
+.item-tablette-travertin img {
+  width: 100% !important;
+  max-width: 280px !important;
+  min-width: 220px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-buffet {
+  grid-column: 1 !important;
+  grid-row: 2 !important;
+}
+
+.item-buffet img {
+  width: 100% !important;
+  max-width: 300px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-chaise {
+  margin-bottom: 30px !important;
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+}
+
+.item-chaise img {
+  width: 100% !important;
+  max-width: 300px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-table-alliser img {
+  width: 100% !important;
+  max-width: 250px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.item-table-alliser {
+  grid-column: 1 !important;
+  grid-row: 3 !important;
+}
+
+.item-table-rinno {
+  grid-column: 2 !important;
+  grid-row: 3 !important;
+}
+
+.item-table-rinno img {
+  width: 100% !important;
+  max-width: 280px !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+
+.moodboard-item:nth-child(7) {
+  margin-left: -30px !important;
+}
+
+.moodboard-text-block {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.moodboard-title {
+  font-family: sans-serif !important;
+  font-size: 11px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  margin: 0 0 2px 0 !important;
+  letter-spacing: 0.5px !important;
+  color: #111 !important;
+}
+
+.moodboard-subtitle {
+  font-family: sans-serif !important;
+  font-size: 11px !important;
+  color: #555 !important;
+  margin: 0 0 3px 0 !important;
+  text-transform: lowercase !important;
+}
+
+.moodboard-desc {
+  font-family: sans-serif !important;
+  font-size: 12px !important;
+  color: #777 !important;
+  margin: 0 !important;
+}
+
+.reform-kitchen-container {
+  display: grid !important;
+  grid-template-columns: repeat(2, max-content) !important;
+  gap: 18px !important;
+  justify-content: center !important;
+
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+
+  padding: 0 15px !important;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.reform-kitchen-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.reform-kitchen-item img {
+  width: auto !important;
+  max-width: 46vw !important;
+  height: auto !important;
+  max-height: 650px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* SECTION SARAH LAVOINE */
+.section-lavoine {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto !important;
+  padding: 0 15px;
+}
+
+.lavoine-header {
+  margin-bottom: 35px;
+}
+
+.lavoine-title {
+  font-family: var(--serif) !important;
+  font-size: 24px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 0 !important;
+  color: #111 !important;
+}
+
+.lavoine-subtitle {
+  font-family: var(--serif) !important;
+  font-style: italic !important;
+  font-size: 20px !important;
+  color: #7BA3B8 !important;
+  margin-top: 14px !important;
+  margin-bottom: 25px !important;
+}
+
+.lavoine-intro {
+  max-width: 700px !important;
+  line-height: 1.6 !important;
+  color: #1a1a1a !important;
+  font-size: 16px !important;
+}
+
+/* Grille unique alignée pour les deux lignes */
+.lavoine-grid-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  column-gap: 40px !important;
+  row-gap: 25px !important;
+}
+
+.lavoine-media-block {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+}
+
+.lavoine-media-block img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.console-block img {
+  max-height: 600px !important;
+  transform: scale(1.3) !important;
+}
+
+.lavoine-text-block-final {
+  line-height: 1.6 !important;
+  font-size: 14px !important;
+  color: #333 !important;
+  align-self: start !important;
+  padding-top: 15px;
+}
+
+.link-minimalist {
+  font-family: sans-serif !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: #222 !important;
+  margin-top: 2px !important;
+  text-decoration: none !important;
+  display: block !important;
+}
+
+/* SECTION SARAH LAVOINE - Écart moyen et élégant */
+.lavoine-title {
+  margin-bottom: 0 !important;
+}
+.lavoine-subtitle {
+  margin-top: 14px !important;
+  margin-bottom: 25px !important;
+}
+
+/* SECTION CUISINES - Écart plus serré */
+.cuisines-title {
+  margin-bottom: 0 !important;
+}
+.cuisines-subtitle {
+  margin-top: 6px !important;
+  margin-bottom: 25px !important;
+  color: #7BA3B8 !important;
+  font-style: italic !important;
+  font-size: 26px !important;
+}
+
+/* SECTION DESIGN DE COLLECTION - Écart plus serré */
+.collection-title {
+  margin-bottom: 0 !important;
+}
+.collection-subtitle {
+  margin-top: 6px !important;
+  margin-bottom: 25px !important;
+  color: #7BA3B8 !important;
+  font-style: italic !important;
+}
+
+@media(max-width:768px) {
+  .article-hero { height:60vh; }
+  .article-body { padding:60px 20px 80px; }
+  .article-img-grid, .article-img-grid-3 { grid-template-columns:1fr; }
+  nav { padding:0 20px; }
+  footer { padding:40px 20px 20px; }
+  .moodboard-container { grid-template-columns: repeat(2, 1fr); }
+  .img-grid-2 { grid-template-columns: 1fr; }
+  .lavoine-grid { grid-template-columns: 1fr; }
+}
+
+/* MOODBOARD COUPS DE COEUR - Expansion à la manière Jean Nouvel */
+.coups-de-coeur-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+
+  padding: 40px 20px 0px 20px !important;
+  box-sizing: border-box !important;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.coups-de-coeur-container img {
+  width: 90% !important;
+  max-width: 1100px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: inline-block !important;
+  margin: 0 !important;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-dot"></span>CALLI &amp; SOL</a>
+  <div class="nav-links">
+    <a href="index.html#a-la-une">Le Blog</a>
+    <a href="index.html#le-studio">Le Studio</a>
+    <a href="index.html#qui-suis-je">À propos</a>
+  </div>
+  <a href="index.html#newsletter-section" class="nav-subscribe">Je m'abonne</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero" style="background-image:url('images/inox/CUISINE-NMK/cuisine-inox-mmkjpg.jpg');">
+  <div class="article-hero-content">
+    <div class="article-hero-tag">Matières</div>
+    <h1 class="article-hero-title" style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(70px,12vw,150px);letter-spacing:0.18em;">L'inox</h1>
+    <div class="article-hero-meta">Ariane Fonteyne · 10 septembre 2026 · 8 min de lecture</div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<main class="article-body">
+
+  <p style="text-align:center;font-size:32px;color:var(--dark);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;font-family:var(--serif);font-weight:400;">L'INOX EST UNE MATIÈRE <em style="font-style:italic;color:#7BA3B8;">FASCINANTE</em></p>
+  <p style="text-align:center;font-size:19px;"><strong>Celle qu'on associait instinctivement aux cuisines professionnelles vit aujourd'hui une véritable renaissance dans nos intérieurs !</strong></p>
+  <p style="font-style:italic;text-align:center;color:#1a1a1a;">Dans cet article, je vous emmène explorer de magnifiques réalisations contemporaines en acier inoxydable, de Séoul à Paris.<br>Et parce que l'inspiration ne sert à rien sans pouvoir passer à l'action, j'ai sélectionné pour vous mes coups de coeur, à tous les budgets.<br>Vous les trouverez tout au long de l'article et en fin de page.</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 1 : SÉOUL -->
+  <h2>LA VISION RADICALE DE SÉOUL, <em style="color:#7BA3B8;">l'art de l'essentiel</em></h2>
+
+  <p>Nous commençons notre voyage au cœur de la matière avec une réalisation magistrale signée par les <strong>Studios MMK et BY ARCHITECTURE</strong>. À Séoul, l'inox quitte sa fonction industrielle pour devenir une expérience spirituelle pure.</p>
+
+  <div class="article-img-grid" style="margin-left:-140px;margin-right:-140px;">
+    <img src="images/inox/CUISINE-NMK/cuisine-inox-mmk2.png" alt="Pureté">
+    <img src="images/inox/CUISINE-NMK/cuisine-inox-mmkl3.jpg" alt="Cuisine inox">
+  </div>
+
+  <div style="position:relative;width:100vw;margin-left:calc(-50vw + 50%);margin-top:64px;margin-bottom:48px;">
+    <img src="images/inox/CUISINE-NMK/cuisine-inox-mmk4.jpg" alt="Îlot monolithique en acier inoxydable" style="width:100%;display:block;">
+    <div style="position:absolute;top:32px;right:48px;background:rgba(255,255,255,0.82);padding:20px 24px;max-width:420px;">
+      <p style="font-family:'Open Sans',sans-serif;font-size:16px;color:#4A4A4A;line-height:1.9;margin-bottom:24px;font-weight:bold;font-style:italic;">Ici, la cuisine s'affirme par sa présence monolithique.<br><br>L'îlot de 4 mètres en acier s'impose dans l'espace avec une stabilité monumentale.<br><br>Ce n'est plus un simple meuble, mais une pièce d'architecture qui structure la pièce, offrant un point de ralliement solide et apaisant.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:60px;margin-bottom:60px;text-align:center;">
+    <h3 class="cuisines-subtitle" style="font-family: var(--sans) !important;">L'Équilibre des Textures</h3>
+    <p style="color: #1a1a1a;">Le succès de ce projet réside dans le contraste maîtrisé. La précision chirurgicale de l'acier rencontre la porosité du béton pour former un cocon protecteur. Une vision moderne de l'habitat où la matière, bien qu'industrielle, devient une source de méditation et de réconfort.</p>
+  </div>
+
+  <div style="width:100vw;margin-left:calc(-50vw + 50%);padding:0 2cm;margin-top:40px;margin-bottom:40px;box-sizing:border-box;">
+    <img src="images/inox/CUISINE-NMK/cuisine-inox-mmkjpg.jpg" alt="Cuisine inox monolithique" style="width:100%;display:block;border-radius:4px;">
+  </div>
+
+  <img class="article-img" src="images/inox/cuisine-metal.jpg" alt="Écrin" style="display:none;">
+
+  <div style="display:flex;gap:40px;align-items:flex-start;margin:60px 0;">
+    <div style="flex:0 0 40%;padding-top:20px;">
+      <h3 style="color:#1A1410;font-style:normal;">Refuge apaisant</h3>
+      <p style="color: #1a1a1a;">Au-delà de la prouesse technique, le <strong>CP Project</strong> nous rappelle que le minimalisme n'est pas une absence, mais une présence choisie.</p>
+      <p style="color: #1a1a1a;">En laissant la lumière danser sur l'inox et le béton, cet espace devient un refuge silencieux, une parenthèse de clarté où chaque détail invite à l'apaisement.</p>
+      <p style="font-style:italic;color:#5A7FA0;">Personnellement, je trouve cette réalisation absolument extraordinaire !</p>
+    </div>
+    <div style="flex:0 0 60%;">
+      <img src="images/inox/CUISINE-NMK/derniere-image-cuisine-inox.png" alt="Refuge apaisant" style="width:100%;display:block;border-radius:4px;">
+    </div>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SÉLECTION COUPS DE COEUR -->
+  <h2 style="text-align:center;">SÉLECTION <em style="color:#7BA3B8;">COUPS DE COEUR</em></h2>
+
+  <p style="font-style:italic;text-align:center;">J'ai sélectionné pour vous quelques coups de cœur dans cet esprit inox, brut et épuré, des pièces que j'aurais envie d'avoir chez moi.<br><strong>Cliquez sur chaque pièce pour la découvrir.</strong></p>
+
+  <!-- SÉLECTION MOODBOARD - IMAGE UNIQUE -->
+  <div class="coups-de-coeur-container" style="position: relative;">
+    <img src="images/inox/moodboard-coupsdecoeur-selection-inox.png" alt="Sélection coups de cœur inox">
+
+  </div>
+
+  <p>Pour débuter cette sélection, un coup de cœur signé <strong>Sklum</strong>, une enseigne que j'adore pour son rapport qualité-prix et son sens du design accessible. <a href="https://www.sklum.com/fr/acheter-packs-de-tables-de-chevet/229077-pack-de-2-tables-de-chevet-flottantes-45x15-cm-en-acier-inoxydable-et-pierre-naturelle-serbian.html?id_c=680283&_gl=1*1qme651*_up*MQ..*_ga*MTI3MzMzODc4MS4xNzg1Njg3NTE5*_ga_Z2482RZ0GH*czE3ODU2ODc1MTgkbzEkZzAkdDE3ODU2ODc1MTgkajYwJGwwJGgxMTI4OTA0NzQ1" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La tablette murale SERBIAN</strong></u></a> ouvre le bal avec élégance : un design flottant de 45x15 cm qui marie l'inox brossé à la pierre, travertin, bois foncé ou marbres colorés selon vos envies. Un détail qui change tout dans une entrée ou un couloir. À partir de <strong class="price">60,95&euro;</strong> (Bois) à <strong class="price">96,95&euro;</strong> (Travertin). <a href="https://www.sklum.com/fr/acheter-chaises-salle-a-manger/226819-chaise-de-salle-a-manger-en-acier-inoxydable-narnial.html?id_c=671817&_gl=1*axaxp2*_up*MQ..*_ga*MTI1OTcwMDgwOC4xNzg2MjE0Mjg2*_ga_Z2482RZ0GH*czE3ODYyMTQyODUkbzEkZzAkdDE3ODYyMTQyODUkajYwJGwwJGg1MTUyNTk1Mzg." target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La chaise NARNIAL</strong></u></a> s'impose comme un vrai manifeste du style industriel moderne. Sa silhouette enveloppante et sa luminosité architecturale en font une pièce qui ne passe pas inaperçue. Un coup de cœur absolu pour une salle à manger ou un bureau avec personnalité. <strong class="price">144,95&euro;</strong>.</p>
+  <p>Pour structurer une pièce, <a href="https://www.sklum.com/fr/acheter-buffet/224573-buffet-160x40-cm-en-acier-inoxydable-luena.html?id_c=665397&_gl=1*1dw6nju*_up*MQ..*_ga*MTY5NzMxMzQ3MS4xNzg2MjE0MjQ4*_ga_Z2482RZ0GH*czE3ODYyMTQyNDckbzEkZzAkdDE3ODYyMTQyNDckajYwJGwwJGgzNzA1NTU3ODM." target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>le buffet LUENA</strong></u></a> s'impose naturellement avec ses côtés arrondis et ses plateaux disponibles en inox, travertin ou marbre vert. Une vraie pièce maîtresse. <strong class="price">1 169,95&euro;</strong>.</p>
+  <p>Côté art de la table, <a href="https://www.sklum.com/fr/acheter-accessoires-de-table/225134-seau-a-glace-avec-pied-en-acier-inoxydable-et-bambou-dakomi.html?id_c=666659&_gl=1*syisca*_up*MQ..*_ga*MTQ4NjAwMDg5OC4xNzg2MjE0MTMz*_ga_Z2482RZ0GH*czE3ODYyMTQxMzIkbzEkZzAkdDE3ODYyMTQxMzIkajYwJGwwJGg4ODAyODMwMTk." target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>le seau à glace DAKOMI</strong></u></a> marie métal et bambou avec une convivialité assumée <strong class="price">89,95&euro;</strong>, et le duo <a href="https://www.sklum.com/fr/acheter-vaisselle-et-ustensiles-de-cuisine/231442-salier-et-poivrier-en-acier-inoxydable-limatoli.html?id_c=689977&_gl=1*v5nx32*_up*MQ..*_ga*NTM4MjQ2MDkyLjE3ODYyMTQzMTg.*_ga_Z2482RZ0GH*czE3ODYyMTQzMTckbzEkZzAkdDE3ODYyMTQzMTckajYwJGwwJGgxNjA0MTE0NDcz" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>salière &amp; poivrier LIMATOLI</strong></u></a> apporte un minimalisme radical pour seulement <strong class="price">13,95&euro;</strong>.</p>
+  <p>Pour le salon, deux esthétiques s'offrent à vous : <a href="https://www.sklum.com/fr/acheter-tables-d-appoint/212314-table-basse-rectangulaire-110x55-cm-en-acier-inoxydable-rinno.html?id_c=591202&_gl=1*1gd9pal*_up*MQ..*_ga*MzczMDkxNjA1LjE3ODYyMTQzNTE.*_ga_Z2482RZ0GH*czE3ODYyMTQzNTAkbzEkZzAkdDE3ODYyMTQzNTAkajYwJGwwJGgyNTUzNzI2MjE." target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>la table basse RINNO</strong></u></a> et sa force géométrique <strong class="price">639,95&euro;</strong>, ou <a href="https://www.sklum.com/fr/acheter-tables-basses-et-d-appoints/219786-mesa-auxiliar-redonda-o40-cm-alliser.html?id_c=619892&_gl=1*c7d2a0*_up*MQ..*_ga*MTkxMDE5MDk5MS4xNzg2MjE0Mzg0*_ga_Z2482RZ0GH*czE3ODYyMTQzODMkbzEkZzAkdDE3ODYyMTQzODMkajYwJGwwJGgxNjk1MDQwNDAw" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>la table d'appoint ALLISER</strong></u></a> avec son plateau circulaire en inox, travertin, marbre beige, vert ou cristal transparent - piétement en inox ou bois foncé, à partir de <strong class="price">104,95&euro;</strong>.</p>
+
+  <p style="font-style:italic;color:#7BA3B8;font-size:20px;">Matériau durable et lumineux, l'inox est l'investissement déco de l'année !</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 2 : JEAN NOUVEL -->
+  <h2>LA CUISINE MIROIR : JEAN NOUVEL <em>× REFORM</em></h2>
+
+  <p>Après l'épure coréenne, place à l'icône. <strong>Jean Nouvel</strong> a collaboré avec <strong>REFORM</strong> pour créer la collection <strong>REFLECT</strong>. Ici, l'acier n'est pas un bloc froid, mais un miroir vivant. Grâce à des stries verticales — une signature de l'architecte — la cuisine capture le monde environnant pour le restituer avec une douceur inattendue. Selon l'angle du soleil, l'aspect évolue, transformant la cuisine en une œuvre en constante mutation.</p>
+
+  <div class="reform-kitchen-container">
+    <div class="reform-kitchen-item"><img src="images/inox/cuisine-inox-reflect.reform.jpg" alt="REFLECT 1"></div>
+    <div class="reform-kitchen-item"><img src="images/inox/cuisine-inox-jean.nouvel.jpg" alt="REFLECT 2"></div>
+  </div>
+
+  <p style="text-align: left; margin-top: 32px;"><a href="https://www.reformcph.com/en/kitchens/collections/reflect-jean-nouvel" target="_blank" style="text-decoration: none; color: #6B6B6B; border-bottom: 1px dotted #6B6B6B; padding-bottom: 2px; font-style: italic;">→ collection Reflect</a></p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 3 : CUISINES INOX + BOIS -->
+  <h2 class="cuisines-title">QUELQUES CUISINES COUP DE COEUR,</h2>
+  <h3 class="cuisines-subtitle" style="font-family: var(--sans) !important;">l'inox se mélange chaleureusement au bois</h3>
+
+  <p style="color: #1a1a1a;">Laissez-vous séduire par le contraste des matériaux qui apporte une élégance immédiate à la pièce. C'est ce mélange inattendu qui fait tout le charme de ces espaces : la pureté de l'acier vient souligner la douceur du bois, créant un équilibre visuel parfait.</p>
+  <p style="color: #1a1a1a;">Qu'il soit brossé, lisse ou strié, l'inox capte la lumière pour réveiller les textures naturelles. Dans un appartement haussmannien comme sous des poutres anciennes, il prouve qu'il n'est plus seulement technique, mais qu'il sait être une matière noble, chaleureuse et vivante.</p>
+
+  <img class="article-img" src="images/inox/cuisine-inox-bois1.jpg" alt="Inox et bois 1">
+  <img class="article-img" src="images/inox/cuisine-inox-bois2.jpg" alt="Inox et bois 2">
+  <img class="article-img" src="images/inox/cuisine-inox-bois-pinterest.jpg" alt="Inox et bois 4">
+
+  <hr class="article-divider">
+
+  <!-- SECTION 4 : SARAH LAVOINE -->
+  <div class="section-lavoine">
+    <!-- EN-TÊTE ET INTRO -->
+    <div class="lavoine-header">
+      <h2 class="lavoine-title">Le Mobilier Sculptural, Sarah Lavoine</h2>
+      <h3 class="lavoine-subtitle" style="font-family: var(--sans) !important;">L'Acier devient Couture : Collection Gégé</h3>
+      <p class="lavoine-intro">L'inox s'échappe de la cuisine pour investir le salon avec une souplesse inattendue. Dans sa collection "Gégé", Sarah Lavoine travaille le métal comme un tissu : il se plie, ondule et crée des structures légères.</p>
+    </div>
+
+    <!-- GRILLE UNIQUE : LIGNE 1 ET LIGNE 2 ALIGNÉES -->
+    <div class="lavoine-grid-container">
+      <!-- LIGNE 1 : COLONNE 1 -->
+      <div class="lavoine-media-block">
+        <img src="images/inox/table-basse-gege-sarah.lavoine.png" alt="La table basse Gégé">
+      </div>
+
+      <!-- LIGNE 1 : COLONNE 2 -->
+      <div class="lavoine-media-block">
+        <img src="images/inox/table-basse-gege-sarah-lavoine.salon.png" alt="Salon Collection Gégé">
+      </div>
+
+      <!-- LIGNE 2 : COLONNE 1 (TEXTE) -->
+      <div class="lavoine-text-block-final">
+        <p style="color: #1a1a1a; line-height: 1.6;">Que ce soit en table basse ou en table d'appoint, l'acier brossé perd son aspect industriel pour devenir une pièce de haute couture, capable d'illuminer une pièce de vie par sa simple présence.</p>
+        <p style="font-size: 14px; line-height: 1.6;">Découvrez<br>la <a href="https://www.madeindesign.com/prod-table-basse-gege-metal-argent-90-x-90-x-h-35-cm-maison-sarah-lavoine-refm116295301.html" target="_blank" style="text-decoration: none; color: #000; font-style: italic;">→ <u><em>table basse</em></u></a> à <span class="price">1990&euro;</span> et<br>la <a href="https://www.madeindesign.com/prod-table-d-appoint-gege-metal-argent-45-x-45-x-h-45-cm-maison-sarah-lavoine-refm116287801.html" target="_blank" style="text-decoration: none; color: #000; font-style: italic;">→ <u><em>table d'appoint</em></u></a> à <span class="price">790&euro;</span><br>sur la boutique en ligne <strong>Made in Design</strong>,<br>en cliquant sur les images.</p>
+      </div>
+
+      <!-- LIGNE 2 : COLONNE 2 (TABLE D'APPOINT) -->
+      <div class="lavoine-media-block console-block">
+        <img src="images/inox/sidetable-sarah-lavoine.jpeg" alt="La table d'appoint Gégé">
+        <p style="margin-top: 12px; margin-bottom: 0;"><a href="https://www.maisonsarahlavoine.com/products/table-d-appoint-gege-inox-brosse-45x45xh45-inox-brosse" target="_blank" style="text-decoration: none; color: #6B6B6B; border-bottom: 1px dotted #6B6B6B; padding-bottom: 2px; font-style: italic;">→ table d'appoint</a></p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SÉLECTION DESIGN INTEMPOREL -->
+  <h2 style="text-align:center;">SÉLECTION <em style="color:#7BA3B8;">DESIGN INTEMPOREL</em></h2>
+
+  <p style="font-style:italic;text-align:center;margin-bottom: 0; border: none;">Une sélection de pièces épurées et intemporelles qui incarnent l'essence minimaliste de l'inox.<br><strong>Cliquez sur chaque objet pour découvrir la fiche produit.</strong></p>
+
+  <div style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); padding: 40px 20px 0px 20px; box-sizing: border-box; text-align: center;">
+    <img src="images/inox/moodboard-design-intemporel.jpg" alt="Sélection design intemporel" style="width: 90%; max-width: 1200px; height: auto; display: inline-block;">
+  </div>
+
+  <p style="margin-top: -18px;">Pour commencer cette sélection de pièces iconiques, deux chaises intemporelles, signées Eames pour Vitra :</p>
+
+  <p><a href="https://www.madeindesign.com/prod-chaise-wire-chair-dkr-argent-metal-by-charles-ray-eames-1951-vitra-ref4121500-1-80.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniNL400Hz7BNzlGcoipMoQ5vZ&gclid=CjwKCAjw1vXTBhB-EiwAEKr_k8l5kJNYVgsAMeEFdGZcytAAK5FmRfUioqLoW-dM7-La1fxmvu3fYhoCt58QAvD_BwE" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La WIRE CHAIR DKR</strong></u></a>, fil d'acier chromé, piètement Tour Eiffel, légèreté sculpturale. Créée en 1951 et toujours aussi parfaite. Une pièce originale signée Vitra, elle vous survivra, <strong class="price">465€</strong>.</p>
+
+  <p><a href="https://www.madeindesign.com/prod-fauteuil-lounge-wire-chair-lkr-argent-metal-charles-ray-eames-1951-vitra-refm114865201.html" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>Le FAUTEUIL LOUNGE LKR</strong></u></a>, même ADN que la Wire Chair, mais plus bas, plus enveloppant. Signé Eames pour Vitra, 1951, <strong class="price">615€</strong>.</p>
+
+  <p><a href="https://www.madeindesign.com/prod-lampadaire-aj-metal-h-130-cm-orientable-arne-jacobsen-1957-louis-poulsen-ref5744166425.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniNL400Hz7BNzlGcoipMoQ5vZ&gclid=CjwKCAjw1vXTBhB-EiwAEKr_kwbLlVij9akAEVbB5gCsPpnpGXWJbf0qE-3xqxgPYCx8taW6bLc8MxoCCAcQAvD_BwE" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>Le LAMPADAIRE AJ</strong></u></a> de Arne Jacobsen pour Louis Poulsen, 1957, créé pour le SAS Royal Hotel de Copenhague. Acier inox poli, abat-jour orientable, lumière douce et non éblouissante. Fabriqué au Danemark. Élégance scandinave pure, <s><strong class="price">1410€</strong></s> <strong class="price">1 090,40 €</strong>.</p>
+
+  <p><a href="https://www.westwing.fr/vase-en-acier-inoxydable-vine-haut-26-cm-165699.html?simple=DEQ24WES13182-214142" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>Le VASE VINE</strong></u></a> de Westwing, acier inoxydable chromé, formes organiques, finition miroir. Seul ou en trio, il capte la lumière et transforme une étagère en composition, <s><strong class="price">49,99€</strong></s> <strong class="price">39,99€</strong>.</p>
+
+  <p><a href="https://www.madeindesign.com/prod-lampadaire-arco-metal-h-240-cm-achille-castiglioni-1962-flos-reff0300000.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_id=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_campaign=ASUC+-+FR+-+SN+-+NOTO+MIX+-+MID+-+%23NOTO&gad_source=1&gad_campaignid=17812324962&gbraid=0AAAAADlsniPIw-3oRghGmJxAKrvpHqLQK&gclid=Cj0KCQjwh4TVBhCWARIsAG0czmpYPxl3XvPkHd3SpBLR88ImWSbZ9NOgy45IP_j05R6uKJOYW3uQTUUaAsXqEALw_wcB" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>Le LAMPADAIRE ARCO</strong></u></a>, de Achille Castiglioni. Bras en acier courbé, base en marbre blanc de 65 kg, diffuseur réglable en hauteur. Collection permanente du MoMA. Un must-have absolu dans un salon, il s'accorde avec tous les styles, du minimaliste au plus éclectique. En vente chez Made in design, <s><strong class="price">2 649,90 €</strong></s> <strong class="price">2 384,91 €</strong>.</p>
+
+  <p><a href="https://www.westwing.be/fr/set-de-couverts-polis-et-brillants-arne-jacobsen-tailles-de-set-differentes-169284.html" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>Les COUVERTS ARNE JACOBSEN</strong></u></a> pour Georg Jensen, créés en 1957 pour le SAS Royal Hotel, toujours aussi parfaits. Acier inoxydable poli brillant, minimalisme scandinave pur. Une table dressée avec ces couverts, c'est déjà une déclaration, en vente chez Westwing, <strong class="price">189€</strong>.</p>
+
+  <p><a href="https://www.sklum.com/fr/acheter-tables-salle-a-manger/219555-table-de-salle-a-manger-ronde-o120-cm-en-acier-inoxydable-baelor.html?id_c=618979" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La TABLE BAELOR</strong></u></a> de Sklum, ronde, Ø120 cm. La tablette du dessus se décline en différents matériaux : le tout inox, travertin, bois foncé, marbre rouge, beige, vert. Prix à partir de <strong class="price">699,95€</strong> pour la tablette en bois, <strong class="price">809,95€</strong> pour le tout en inox, <strong class="price">989,95€</strong> pour la tablette en travertin.</p>
+
+  <p><a href="https://www.nordicnest.fr/marques-de-design/ferm-living/set-sel-et-poivre-orevo/" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>OREVO</strong></u></a>, salière & poivrier en acier inoxydable poli miroir. Inspirés de l'orfèvrerie française, ils transforment le repas le plus simple en moment raffiné. Un poids agréable en main, une lumière qui danse sur leur surface, Nordicnest, <s><strong class="price">69€</strong></s> <strong class="price">41,40€</strong>.</p>
+
+  <p><a href="https://www.madeindesign.com/prod-lampe-de-table-flowerpot-vp3-argent-metal-h-50-cm-by-verner-panton-1968-tradition-refm114804001.html" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La LAMPE FLOWERPOT VP3</strong></u></a> de Verner Panton pour &Tradition, 1968. Deux demi-sphères en métal chromé, une silhouette ronde et joyeuse, une lumière douce et directe. Iconique, espiègle, indémodable, <s><strong class="price">476€</strong></s> <strong class="price">337€</strong>.</p>
+
+  <p><a href="https://www.westwing.be/fr/bouilloire-en-acier-inoxydable-gloss-1-2-l-156835.html" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>La BOUILLOIRE AARKE</strong></u></a>, acier inoxydable, double paroi isolante, bec verseur anti-goutte. La bouilloire la plus élégante de votre cuisine, et aussi la plus intelligente. Contrôle de température de 40° à 100°, fonction mémoire, ouverture douce du couvercle, protection anti-marche à sec. Chaque détail est pensé !, <strong class="price">249&euro;</strong>.</p>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 5 : TABLE DOA -->
+  <h2 class="collection-title">LE DESIGN DE COLLECTION</h2>
+  <h3 class="collection-subtitle" style="font-family: var(--sans) !important;">Le Minimalisme Radical : La Table "Doa" par Modan</h3>
+
+  <p>C'est notre coup de cœur absolu : <a href="https://galerieparadis.fr/products/table-bureau-doa?srsltid=AfmBOooHrEojJt_2BzpS6f9pUcv4Kz-SEYYRHugeIPZP4OklHjwGCasz" target="_blank" style="text-decoration: none; color: inherit; font-style: italic;"><u><strong>TABLE DOA</strong></u></a>, créée par <strong>Paul Touillon</strong> pour <strong>Modan</strong> (en exclusivité à la Galerie Paradis). Ici, le design atteint un point de non-retour dans la simplicité. Imaginez une seule feuille d'acier pliée, sans aucun assemblage ni fixation, pour donner naissance à l'objet.</p>
+
+  <p>C'est une silhouette drapée, presque vivante, où les légères imperfections du métal brossé font partie de son identité unique. Qu'elle soit utilisée comme table de réception ou comme bureau sculptural, elle transforme l'inox en une pièce de collection intemporelle.</p>
+
+  <div class="article-pullquote">
+    <p style="font-family: var(--sans) !important;">"Le métal devient tout : la structure, le support, la silhouette et la beauté. C'est l'essence même du projet."</p>
+  </div>
+
+  <img class="article-img" src="images/inox/doa-table-desk-modan.png" alt="Table Doa — Modan">
+
+  <hr class="article-divider">
+
+  <!-- BANDEAU CITATION -->
+  <div style="width:100vw;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);background:#fff;padding:80px 57px;margin-top:80px;margin-bottom:80px;text-align:center;box-sizing:border-box;">
+    <div style="background:#7BA3B8;padding:90px 60px;border-radius:0;text-align:center;">
+      <p style="font-family:var(--sans);font-style:italic;font-size:22px;color:#fff;line-height:1.8;margin:0;font-weight:400;letter-spacing:0.015em;max-width:900px;margin-left:auto;margin-right:auto;">L'inox est une matière plurielle, froide ou chaleureuse, brute ou raffinée, qui ne demande qu'à être réinventée par ceux qui osent s'en emparer avec imagination et en faire de très beaux objets de décoration ou de véritables œuvres d'art.</p>
+    </div>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SECTION 6 : ALESSANDRO FILIPPINI -->
+  <h2 style="margin-bottom: 0;">LORSQUE L'ACIER SE TRANSFORME EN OEUVRE D'ART</h2>
+  <h3 class="cuisines-subtitle" style="font-family: var(--sans) !important;">Et si l'acier pouvait parler ?</h3>
+
+  <p><strong>Alessandro Filippini</strong>, lui, le fait parler depuis des décennies. Poète et artiste plasticien italien, formé à l'Académie des Beaux-Arts de Rome puis à La Cambre de Bruxelles, il est de ceux qui transforment la matière en émotion pure.</p>
+  <p>Inspiré du minimalisme et de l'Arte Povera, il découpe dans l'acier inoxydable des mots simples, joie, solitude, demain, éternité, rêve, et les élève à plusieurs mètres de haut, entre ciel et terre. Des sculptures monumentales qui touchent à notre inconscient collectif, à ce que nous avons tous en commun sans jamais pouvoir le nommer.</p>
+  <p>Ses œuvres ne s'expliquent pas. Elles se ressentent.</p>
+  <p>On peut les découvrir notamment aux Jardins du Musée Van Buuren à Bruxelles, à l'aéroport de Bruxelles-Charleroi, une balade entre ses sculptures-mots qui ébranle, apaise et recentre.<br>Entre la force de l'acier et la légèreté du verbe, <strong>Alessandro Filippini</strong> crée un art universel et intemporel, à l'image de la matière qu'il choisit.</p>
+
+  <p style="font-style:italic;"><a href="https://www.alessandrofilippini.com" target="_blank" style="color:#1a1a1a;">·····→ www.alessandrofilippini.com</a></p>
+
+  <div class="article-gallery-grid">
+    <div class="gallery-item">
+      <img src="images/inox/ale-aeroprt.png" alt="Brussels South airport">
+    </div>
+    <div class="gallery-item">
+      <img src="images/inox/ale-horizon.jpg" alt="Jumièges à ciel ouvert, Normandie">
+    </div>
+    <div class="gallery-item">
+      <img src="images/inox/ale-absolu.png" alt="Une parcelle d'absolu">
+      <p class="gallery-caption">"Une parcelle d'absolu"</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/inox/ale-religions.avif" alt="Spiritualita">
+      <p class="gallery-caption">Spiritualita</p>
+    </div>
+  </div>
+
+  <hr class="article-divider">
+
+  <!-- SÉLECTION FINALE - CATALOGUE COMPLET AVEC IMAGE CANVA ET HOTSPOTS -->
+  <h2 style="text-align:center;">LA SÉLECTION <em>INOX</em></h2>
+  <p style="font-style:italic;text-align:center;">Tous les objets et mobiliers de notre sélection — cliquez sur chaque élément pour découvrir la fiche produit</p>
+
+  <div style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); padding: 40px 20px 0px 20px; box-sizing: border-box; text-align: center;">
+    <img src="images/inox/derniere-selection-inox.jpg" alt="Sélection complète - Catalogue d'objets en inox" style="width: 90%; max-width: 1100px; height: auto; display: inline-block;">
+
+    <!-- HOTSPOTS INVISIBLES (5 lignes × 7 colonnes = 35 objets) -->
+    <!-- Chaque lien est positionné en absolus sur le texte du produit -->
+
+    <!-- LIGNE 1 -->
+    <a href="https://www.westwing.be/fr/bouilloire-en-acier-inoxydable-gloss-1-2-l-156835.html" target="_blank" title="Bouilloire Aarke" style="position: absolute; top: 5%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-tables-d-appoint/212314-table-basse-rectangulaire-110x55-cm-en-acier-inoxydable-rinno.html?id_c=591202&_gl=1*1gd9pal*_up*MQ..*_ga*MzczMDkxNjA1LjE3ODYyMTQzNTE.*_ga_Z2482RZ0GH*czE3ODYyMTQzNTAkbzEkZzAkdDE3ODYyMjQzNTAkajYwJGwwJGgyNTUzNzI2MjE." target="_blank" title="Table Rinno" style="position: absolute; top: 5%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.nordicnest.fr/marques-de-design/ferm-living/tirebouchon-orevo/?variantId=648535-01" target="_blank" title="Tire-bouchon Orevo" style="position: absolute; top: 5%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-lampadaire-aj-metal-h-130-cm-orientable-arne-jacobsen-1957-louis-poulsen-ref5744166425.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniNL400Hz7BNzlGcoipMoQ5vZ&gclid=CjwKCAjw1vXTBhB-EiwAEKr_kwbLlVij9akAEVbB5gCsPpnpGXWJbf0qE-3xqxgPYCx8taW6bLc8MxoCCAcQAvD_BwE" target="_blank" title="Lampadaire Arne Jacobsen" style="position: absolute; top: 5%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-table-d-appoint-slit-metal-basse-argent-metal-o-45-x-h-35-cm-hay-ref102477-6009000.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniPxMockRD2JPcb7LRGYa0mpM&gclid=Cj0KCQjwh4TVBhCWARIsAG0czmpAgqeYsFOhLxSOXjRcdFFruq9oA5EtocyCIqTkx7SJahkH0FqGbhMaApYTEALw_wcB" target="_blank" title="Table basse Slit Hay" style="position: absolute; top: 5%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="#miroir-ume" title="Miroir Ume" style="position: absolute; top: 5%; left: 88%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+
+    <!-- LIGNE 2 -->
+    <a href="#vase-vine" title="Vase Vine" style="position: absolute; top: 22%; left: 4%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-table-d-appoint-gege-metal-argent-45-x-45-x-h-45-cm-maison-sarah-lavoine-refm116287801.html" target="_blank" title="Table d'appoint Gégé" style="position: absolute; top: 22%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-table-basse-gege-metal-argent-90-x-90-x-h-35-cm-maison-sarah-lavoine-refm116295301.html" target="_blank" title="Table basse Gégé" style="position: absolute; top: 22%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://galerieparadis.fr/products/table-bureau-doa?srsltid=AfmBOooHrEojJt_2BzpS6f9pUcv4Kz-SEYYRHugeIPZP4OklHjwGCasz" target="_blank" title="Table Doa" style="position: absolute; top: 22%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.be/fr/stainless-steel-round-cosmetic-mirror-ume-with-magnification-en-25zon67766.html?simple=DEQ25ZON67766-197346" target="_blank" title="Miroir Ume" style="position: absolute; top: 22%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.fr/vase-en-acier-inoxydable-vine-haut-26-cm-165699.html?simple=DEQ24WES13182-214142" target="_blank" title="Vase Vine" style="position: absolute; top: 22%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="#poubelle-sama" title="Poubelle Sama" style="position: absolute; top: 22%; left: 88%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+
+    <!-- LIGNE 3 -->
+    <a href="#seau-dakomi" title="Seau Dakomi" style="position: absolute; top: 39%; left: 4%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.nordicnest.fr/marques-de-design/ferm-living/set-sel-et-poivre-orevo/" target="_blank" title="Sel et Poivre Orevo" style="position: absolute; top: 39%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-chaise-wire-chair-dkr-argent-metal-by-charles-ray-eames-1951-vitra-ref4121500-1-80.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniNL400Hz7BNzlGcoipMoQ5vZ&gclid=CjwKCAjw1vXTBhB-EiwAEKr_k8l5kJNYVgsAMeEFdGZcytAAK5FmRfUioqLoW-dM7-La1fxmvu3fYhoCt58QAvD_BwE" target="_blank" title="Chaise Wire DKR" style="position: absolute; top: 39%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-coupe-shine-ceramique-argent-o-18-x-h-6-cm-bloomingville-refm115946701.html" target="_blank" title="Coupe Shine" style="position: absolute; top: 39%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www2.hm.com/fr_be/productpage.1276543001.html?srsltid=AfmBOoo5blyIDXL3EHptQDVwqAUrIgSnjCl4qbViKLPvlFTyLlABSAN4" target="_blank" title="Table d'appoint miroir H&M" style="position: absolute; top: 39%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www2.hm.com/fr_be/productpage.1286244001.html" target="_blank" title="Distributeur de savon H&M" style="position: absolute; top: 39%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="#table-alliser" title="Table Alliser" style="position: absolute; top: 39%; left: 88%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+
+    <!-- LIGNE 4 -->
+    <a href="https://www.madeindesign.com/prod-lampadaire-arco-metal-h-240-cm-achille-castiglioni-1962-flos-reff0300000.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_id=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_campaign=ASUC+-+FR+-+SN+-+NOTO+MIX+-+MID+-+%23NOTO&gad_source=1&gad_campaignid=17812324962&gbraid=0AAAAADlsniPIw-3oRghGmJxAKrvpHqLQK&gclid=Cj0KCQjwh4TVBhCWARIsAG0czmpYPxl3XvPkHd3SpBLR88ImWSbZ9NOgy45IP_j05R6uKJOYW3uQTUUaAsXqEALw_wcB" target="_blank" title="Lampadaire Arco" style="position: absolute; top: 56%; left: 4%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-fauteuil-lounge-wire-chair-lkr-argent-metal-charles-ray-eames-1951-vitra-refm114865201.html" target="_blank" title="Fauteuil LKR" style="position: absolute; top: 56%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.be/fr/set-de-couverts-polis-et-brillants-arne-jacobsen-tailles-de-set-differentes-169284.html" target="_blank" title="Couverts Arne Jacobsen" style="position: absolute; top: 56%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-tables-de-chevet/229057-table-de-chevet-flottante-45x15-cm-en-acier-inoxydable-et-pierre-naturelle-serbian.html?id_c=680252&_gl=1*17miz0*_up*MQ..*_ga*MTAwODQ4NjE1Mi4xNzg5MDI5NTgy*_ga_Z2482RZ0GH*czE3ODkwMjk1ODEkbzEkZzAkdDE3ODkwMjk5NTckajYwJGwwJGgyNzIwOTY0MzY." target="_blank" title="Tablette Serbian" style="position: absolute; top: 56%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-vaisselle-et-ustensiles-de-cuisine/231442-salier-et-poivrier-en-acier-inoxydable-limatoli.html?id_c=689977&_gl=1*v5nx32*_up*MQ..*_ga*NTM4MjQ2MDkyLjE3ODYyMTQzMTg.*_ga_Z2482RZ0GH*czE3ODYyMTQzMTckbzEkZzAkdDE3ODYyMTQzMTckajYwJGwwJGgxNjA0MTE0NDcz" target="_blank" title="Sel et Poivre Limatoli" style="position: absolute; top: 56%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-chaises-salle-a-manger/226819-chaise-de-salle-a-manger-en-acier-inoxydable-narnial.html?id_c=671817&_gl=1*1kgueh4*_up*MQ..*_ga*MTA4NDA5NTY0MS4xNzg5MDI5MjIx*_ga_Z2482RZ0GH*czE3ODkwMjkyMjAkbzEkZzAkdDE3ODkwMjkyMjUkajU1JGwwJGgxOTY4MTYxMTMw" target="_blank" title="Chaise Narnial" style="position: absolute; top: 56%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="#obj-29" title="Objet 29" style="position: absolute; top: 56%; left: 88%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+
+    <!-- LIGNE 5 -->
+    <a href="#obj-30" title="Objet 30" style="position: absolute; top: 73%; left: 4%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.be/fr/banc-en-metal-curva-169869.html" target="_blank" title="Banc Curva" style="position: absolute; top: 73%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.be/tijdschriftenhouder-curva-van-metaal-158460.html?simple=DEQ23AYT27759-203622" target="_blank" title="Porte-revue Curva" style="position: absolute; top: 73%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-etageres-murale/199948-etagere-taifa.html?id_c=525921" target="_blank" title="Étagère Taifa" style="position: absolute; top: 73%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-tables-basses-et-d-appoints/219786-mesa-auxiliar-redonda-o40-cm-alliser.html?id_c=619892" target="_blank" title="Table d'appoint Alliser" style="position: absolute; top: 73%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-lampe-de-table-lounge-plastique-argent-o-47-x-h-49-cm-hk-living-refm116081601.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c20997891554_g_a&utm_term=&utm_id=qid_gad_c20997891554_g_a&utm_term=&utm_campaign=ASUC+-+BE+-+Pmax+-+All+products+%23SHOP&gad_source=1&gad_campaignid=20997891992&gbraid=0AAAAADlsniPgbsffTwf6BGWgBcUPp-qt7&gclid=CjwKCAjwqonVBhA4EiwA9wYJ3fSbI0eAjcjBjU3RPqmdt9vinW-9rv_jc46hE-3C05bcfz8iXXIoQhoC8jUQAvD_BwE" target="_blank" title="Lampe HK Living" style="position: absolute; top: 73%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="#obj-36" title="Objet 36" style="position: absolute; top: 73%; left: 88%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+
+    <!-- LIGNE 6 -->
+    <a href="https://www.madeindesign.com/prod-lampadaire-arco-metal-h-240-cm-achille-castiglioni-1962-flos-reff0300000.html?utm_source=google&utm_medium=cpc&utm_content=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_id=qid_gad_c17812324962_g177806986702_a756307822464&utm_term=&utm_campaign=ASUC+-+FR+-+SN+-+NOTO+MIX+-+MID+-+%23NOTO&gad_source=1&gad_campaignid=17812324962&gbraid=0AAAAADlsniPIw-3oRghGmJxAKrvpHqLQK&gclid=Cj0KCQjwh4TVBhCWARIsAG0czmpYPxl3XvPkHd3SpBLR88ImWSbZ9NOgy45IP_j05R6uKJOYW3uQTUUaAsXqEALw_wcB" target="_blank" title="Lampadaire Arco" style="position: absolute; top: 90%; left: 18%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.madeindesign.com/prod-fauteuil-lounge-wire-chair-lkr-argent-metal-charles-ray-eames-1951-vitra-refm114865201.html" target="_blank" title="Fauteuil Lounge LKR" style="position: absolute; top: 90%; left: 32%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.westwing.be/fr/set-de-couverts-polis-et-brillants-arne-jacobsen-tailles-de-set-differentes-169284.html" target="_blank" title="Couverts Arne Jacobsen" style="position: absolute; top: 90%; left: 46%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-tables-de-chevet/229057-table-de-chevet-flottante-45x15-cm-en-acier-inoxydable-et-pierre-naturelle-serbian.html?id_c=680252&_gl=1*1p38n5d*_up*MQ..*_ga*MTY3OTA4NTYwNC4xNzg5MDMwOTEz*_ga_Z2482RZ0GH*czE3ODkwMzA5MTIkbzEkZzAkdDE3ODkwMzA5MTQkajU4JGwwJGg5ODUwNDQ0MTk." target="_blank" title="Tablette Serbian" style="position: absolute; top: 90%; left: 60%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+    <a href="https://www.sklum.com/fr/acheter-vaisselle-et-ustensiles-de-cuisine/231442-salier-et-poivrier-en-acier-inoxydable-limatoli.html?id_c=689977&_gl=1*1nis8xi*_up*MQ..*_ga*MTY3OTA4NTYwNC4xNzg5MDMwOTEz*_ga_Z2482RZ0GH*czE3ODkwMzA5MTIkbzEkZzAkdDE3ODkwMzA5MTgkajU0JGwwJGg5ODUwNDQ0MTk." target="_blank" title="Sel et Poivre Limatoli" style="position: absolute; top: 90%; left: 74%; width: 12%; height: 15%; opacity: 0; cursor: pointer;"></a>
+  </div>
+
+  <p style="font-style:italic;text-align:center;color:#9A8A80;font-size:13px;margin-top:48px;">Crédits : Sources images provenant d'internet et de plateformes de vente en ligne.<br>Photos d'inspiration sélectionnées par Calli &amp; Sol.</p>
+
+  <a href="index.html" class="article-back">← Retour au blog</a>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Calli &amp; Sol</h4>
+      <a href="index.html">Accueil</a>
+      <a href="index.html#magazine">Explorations</a>
+      <a href="index.html#carnet-adresses">La Sélection</a>
+      <a href="index.html#beaux-lieux">Les beaux lieux</a>
+    </div>
+    <div class="footer-col">
+      <h4>Découvrir</h4>
+      <a href="index.html#le-studio">Le Studio</a>
+      <a href="index.html#qui-suis-je">À propos</a>
+      <a href="index.html#newsletter-section">Newsletter</a>
+    </div>
+    <div class="footer-col">
+      <h4>Suivre</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Calli &amp; Sol — La Maison du Soleil
+  </div>
+</footer>
+
+</body>
+</html>
