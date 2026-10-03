@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fontenille Santa Ponsa — Style Nomade Organique — CALLI & SOL</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocre: #D4920A;
+  --dark: #2A2420;
+  --light: #F5F1ED;
+  --cream: #FAF7F2;
+  --beige: #E8DFD5;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Open Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--dark);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--beige);
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: var(--dark);
+  text-decoration: none;
+}
+
+.nav-logo strong { font-weight: 500; }
+
+nav a:not(.nav-logo) {
+  margin-left: 48px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+nav a:not(.nav-logo):hover { opacity: 1; }
+
+/* ARTICLE */
+.article-wrapper {
+  padding-top: 80px;
+}
+
+.article-header {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 100%;
+  background: var(--light);
+}
+
+.article-category {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: 20px;
+}
+
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.article-subtitle {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.article-meta {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+
+/* CONTENT */
+.article-body {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.article-body p {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.article-body p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 400;
+  float: left;
+  line-height: 0.8;
+  padding-right: 8px;
+  padding-top: 6px;
+  color: var(--ocre);
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  text-align: center;
+  margin: 60px 0;
+  padding: 40px 0;
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+  font-family: var(--serif);
+  font-size: 24px;
+  font-style: italic;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* IMAGES */
+.article-image {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.article-image img {
+  max-width: 75%;
+  height: auto;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.article-image-caption {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-style: italic;
+  color: #999;
+  margin-top: 12px;
+}
+
+/* GRID LAYOUT */
+.article-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 60px 0;
+  align-items: center;
+}
+
+.article-grid-text {
+  text-align: left;
+}
+
+.article-grid-text p {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.article-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+/* HEADINGS */
+h2 {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--dark);
+  margin: 60px 0 30px 0;
+  text-align: center;
+}
+
+h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  color: #888;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+/* FOOTER */
+.article-footer {
+  text-align: center;
+  padding: 60px 24px;
+  border-top: 1px solid var(--beige);
+  margin-top: 60px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+
+  .article-body,
+  .article-image img,
+  .article-grid {
+    max-width: 100%;
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .article-title { font-size: 28px; }
+  h2 { font-size: 24px; }
+
+  .pull-quote { font-size: 20px; padding: 30px 24px; }
+}
+
+@media (max-width: 480px) {
+  .article-header { padding: 60px 16px 40px; }
+  .article-body { padding: 40px 16px; max-width: 100%; }
+  .article-title { font-size: 24px; }
+  h2 { font-size: 20px; }
+  .pull-quote { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><strong>CALLI & SOL</strong></a>
+  <a href="index.html">Articles</a>
+</nav>
+
+<!-- ARTICLE WRAPPER -->
+<div class="article-wrapper">
+
+<!-- HEADER -->
+<div class="article-header">
+  <p class="article-category">Voyage & Inspiration</p>
+  <h1 class="article-title">Fontenille Santa Ponsa</h1>
+  <p class="article-subtitle">Le style nomade organique en Minorque</p>
+  <p class="article-meta">CALLI & SOL · 2 Octobre 2026 · 6 min de lecture</p>
+</div>
+
+<!-- BODY -->
+<div class="article-body">
+
+<p>
+Explorons ce style nomade organique en visitant le sublime hôtel Fontenille Santa Ponsa, à Minorque, un ancien palais entouré de jardins luxuriants. À Alaior, entre Mahón et les plus belles criques du sud de Minorque, cette finca majestueuse du XVIIe siècle se dévoile au cœur d'une oasis méditerranéenne.
+</p>
+
+<div class="article-image">
+  <img src="images/article-fontenille/hotel-fontenille-court-ext.jpg" alt="Hôtel Fontenille Santa Ponsa">
+  <p class="article-image-caption">Hôtel Fontenille Santa Ponsa, Minorque</p>
+</div>
+
+<h2>Une harmonie naturelle</h2>
+
+<p>
+L'essence de Fontenille Menorca réside dans l'harmonie de matières brutes et authentiques. Pierre calcaire blanchie par le soleil, peinture à la chaux de blanc immaculé, bois patiné par le temps. Luminaires en fibres naturelles, pots en terre cuite, textiles en lin. Chaque détail respire l'authenticité et la sérénité d'une Minorque intemporelle.
+</p>
+
+<div class="pull-quote">
+Pierre, lin, terre cuite —<br>
+le vocabulaire du lieu<br>
+suffit à tout dire.
+</div>
+
+<p>
+Les jardins entourant le bâtiment historique deviennent des extensions naturelles de l'intérieur. Les plantes méditerranéennes côtoient les aménagements discrets, créant des espaces où la nature prime sur la décoration. Les couleurs s'inspirent de la terre : ocres, beiges, gris doux et blancs de chaux.
+</p>
+
+<h2>L'art de l'espace vide</h2>
+
+<p>
+Ici, moins c'est plus. Les pièces respirent, les objets sont espacés avec intention. Le silence devient un matériau de décoration. Chaque coin invite à la contemplation, chaque surface à la clarté mentale. C'est l'essence même du style nomade organique : la liberté d'être sans l'encombrement.
+</p>
+
+<p>
+Les murs en chaux blanche reflètent la lumière méditerranéenne. Les portes et fenêtres en bois brut s'ouvrent sur les paysages de Minorque. Les textiles en lin naturel bougent avec les brises. Tout ici invite au détachement et à la sérénité.
+</p>
+
+<h2>Un voyage intérieur</h2>
+
+<p>
+Visiter Fontenille n'est pas seulement un voyage géographique. C'est un retour aux essentiels, une redécouverte de ce qui nous importe vraiment. Les murs épais protègent de la chaleur. Les patios intérieurs offrent des refuges ombragés. Les matériaux naturels évoquent des siècles d'habitation.
+</p>
+
+<p>
+Le style nomade organique trouve ici son expression la plus pure : non pas l'absence de confort, mais une forme supérieure de luxe. Celle où la qualité l'emporte sur la quantité, où le temps a le droit d'être visible, où chaque objet a une histoire.
+</p>
+
+</div>
+
+<!-- FOOTER -->
+<div class="article-footer">
+  <p>Cet article célèbre le style nomade organique à travers la découverte de lieux inspirants.<br>
+  Continuez votre exploration du bien-vivre sur <strong>CALLI & SOL</strong>.</p>
+</div>
+
+</div>
+
+</body>
+</html>
